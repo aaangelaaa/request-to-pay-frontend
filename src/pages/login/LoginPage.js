@@ -1,64 +1,64 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap';
 
 import './LoginPage.css';
 
 class LoginPage extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
-            validated: false,
-            badLogin: false
+            username: '',
+            password: ''
         }
+        
+        this.handleUsername = this.handleUsername.bind(this);
+        this.handlePassword = this.handlePassword.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
-    submitCredentials (e) {
-        e.preventDefault()
-        const form = e.currentTarget
+    handleUsername (e) {
+        e.preventDefault();
+        this.setState({ username: e.target.value });
+        this.username = e.target.value;
+        console.log(this.username);
+    }
+    handlePassword (e) {
+        e.preventDefault();
+        this.setState({ password: e.target.value });
+        this.password = e.target.value;
+        console.log(this.password);
+    }
 
-        if (form.checkValidity() === false) {
-            e.stopPropagation()
-        }
-
-        console.log(form)
-        const username = form.getElementsByClassName("form-control")[0].value
-        const password = form.getElementsByClassName("form-control")[1].value
-
-        this.props.checkCredentials(username, password).then((result) => {
-            console.log("success")
-        }).catch((error) => {
-            console.log(error)
-        })
+    handleClick (e) {
+        //add action
     }
 
     render () {
         return (
             <div className="login">
                 <h3 className="login-header">Login</h3>
-                <Form onSubmit={this.submitCredentials.bind(this)} validated={this.state.validated}>
-                </Form>
-                <div className="container">
-                        <Form.Group controlId="formUsername">
-                            <Form.Label>Username</Form.Label>
-                            <Form.Control required type="text" placeholder="Username" />
-                        </Form.Group>
-                        <Form.Group controlId="formPassword">
-                            <div className="password">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control required type="password" placeholder="Password" />
-                            </div>
-                        </Form.Group>
+                //<div className="container">
+                    <Form onSubmit={this.handleClick}>
+                        <Form.Label>Username</Form.Label>
+                        <Form.Control required type="text" placeholder="Username" 
+                            onChange={this.handleUsername} value={ this.state.username }
+                        />
+
+                        <div className="password">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control required type="password" placeholder="Password" 
+                                onChange={this.handlePassword} value={ this.state.password }
+                            />
+                        </div>
+
                         <div className="login-button">
                             <Button variant="secondary" type="submit">
                                 Enter
                             </Button>
                         </div>
-                        {
-                            this.state.badLogin ? 
-                            (<p className="bad-login">Invalid username or password.</p>) : null
-                        }
-                </div>
+                    </Form>
+                //</div>
             </div>
         );
     }
