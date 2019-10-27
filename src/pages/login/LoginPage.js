@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button } from 'react-bootstrap';
-
+import BackendAuth from '../../helpers/BackendAuth.js'
+import LoginConfirmation from '../login confirmation/LoginConfirmation.js'
 import './LoginPage.css';
 
 class LoginPage extends Component {
@@ -9,7 +10,8 @@ class LoginPage extends Component {
         super(props);
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            userType: ''
         }
         
         this.handleUsername = this.handleUsername.bind(this);
@@ -31,7 +33,10 @@ class LoginPage extends Component {
     }
 
     handleClick (e) {
-        //add action
+        e.preventDefault();
+        // get info from backend here
+        this.userType = "Driver";
+        console.log(this.userType + " Dashboard");
     }
 
     render () {
