@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap');
+
+.confirmation {
+    position: relative;
+    text-align: center;
+
+    font-family: 'Julius Sans One', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+
+    color: #000000;
+}
+
+.successful-header {
+    top: 0;
+    left: 0;
+    font-size: 48px;   
+}
+
+.user-type {
+    top: 50%;
+    left: 0;
+    font-size: 48px;  
+}
+
+.dashboard {
+    top: 80%;
+    left: 0;
+    font-size: 48px;  
+}

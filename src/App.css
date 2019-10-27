@@ -2,19 +2,23 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.Scotiabank-logo {
+  position: relative;
+  width: auto;
+  height: 82px;
+  left: auto;
+  top: 4vw;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #FFFFFF;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: transparent;
 }
 
 .App-link {
