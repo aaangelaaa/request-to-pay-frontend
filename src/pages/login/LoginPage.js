@@ -46,25 +46,21 @@ class LoginPage extends Component {
         return (
             <div className="login">
                 <h3 className="login-header">Login</h3>
-                    <Form onSubmit={this.handleClick}>
-                        <Form.Label>Username</Form.Label>
-                        <Form.Control required type="text" placeholder="Username" 
-                            onChange={this.handleUsername} value={ this.state.username }
-                        />
+                <Form onSubmit={this.handleClick}>
+                    <Form.Group controlId="formBasicEmail">
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control type="email" placeholder="Enter email" />
+                    </Form.Group>
 
-                        <div className="password">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control required type="password" placeholder="Password" 
-                                onChange={this.handlePassword} value={ this.state.password }
-                            />
-                        </div>
-
-                        <div className="login-button">
-                            <Button variant="secondary" type="submit">
-                                Enter
-                            </Button>
-                        </div>
-                    </Form>
+                    <Form.Group controlId="formBasicPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control type="password" placeholder="Password" />
+                    </Form.Group>
+                    
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
+                </Form>
             </div>
         );
     }

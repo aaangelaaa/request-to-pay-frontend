@@ -8,12 +8,7 @@ import LoginConfirmation from './pages/login confirmation/LoginConfirmation.js';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="Scotiabank-logo" alt="logo" />
-        <LoginPage/>;
-      </header>
-    </div>
+    <LoginPage/>  
   );
 }
 
