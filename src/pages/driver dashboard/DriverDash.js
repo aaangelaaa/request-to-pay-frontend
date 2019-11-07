@@ -14,6 +14,8 @@ class DriverDash extends Component {
         
         this.handleClick1 = this.handleClick1.bind(this);
         this.handleClick2 = this.handleClick2.bind(this);
+        this.handleLogout = this.handleLogout.bind(this);
+
     }
 
     handleClick1 (e) {
@@ -24,8 +26,14 @@ class DriverDash extends Component {
 
     handleClick2 (e) {
         e.preventDefault();
-        // swithc pages
+        // switcc pages
         console.log("goodbye!");
+    }
+
+    handleLogout (e) {
+        e.preventDefault();
+        // switcc pages
+        console.log("logging out!");
     }
 
     render () {
@@ -34,6 +42,7 @@ class DriverDash extends Component {
                 <h3 className="driver-header">Driver Dashbaord</h3>
                 <Button variant="primary" size="lg" block onClick={this.handleClick1}>View Active Invoices</Button>
                 <Button variant="secondary" size="lg" block onClick={this.handleClick2}>View Past Invoices</Button>
+                <Button variant="primary" size="sm" onClick={this.handleLogout}>Logout</Button>
             </div>
         );
     }
