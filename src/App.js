@@ -9,7 +9,7 @@ import DriverDash from './pages/driver dashboard/DriverDash.js';
 
 function App() {
   return (
-    <DriverDash/>  
+    <LoginPage/>  
   );
 }
 
