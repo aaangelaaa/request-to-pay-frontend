@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button } from 'react-bootstrap';
-import BackendAuth from '../../helpers/BackendAuth.js'
 import './DriverDash.css';
 
 {/* Driver Dashboard */}
