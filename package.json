@@ -3,11 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "framework7": "^5.1.1",
     "framework7-react": "^5.1.1",
+=======
+    "bootstrap": "^4.3.1",
+    "package.json": "^2.0.1",
+>>>>>>> e69b5a8bb07f7066af6be34620edfa6c66025499
     "react": "^16.11.0",
     "react-bootstrap": "^1.0.0-beta.14",
     "react-dom": "^16.11.0",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0"
   },
   "scripts": {
