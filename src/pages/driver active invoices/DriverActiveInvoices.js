@@ -11,15 +11,22 @@ class DriverActiveInvoices extends Component {
         this.state = {
         }
         
-        this.handleClick = this.handleClick.bind(this);
+        this.handleClick1 = this.handleClick1.bind(this);
+        this.handleClick2 = this.handleClick2.bind(this);
         this.handleBack = this.handleBack.bind(this);
 
     }
 
-    handleClick (e) {
+    handleClick1 (e) {
         e.preventDefault();
         // switch pages
         console.log("hello!");
+    }
+
+    handleClick2 (e) {
+        e.preventDefault();
+        // switch pages
+        console.log("hello2!");
     }
 
     handleBack (e) {
@@ -41,8 +48,11 @@ class DriverActiveInvoices extends Component {
                           </Accordion.Toggle>
                         <Accordion.Collapse eventKey="0">
                           <Card.Body>
-                            <Button className="set-delivered" variant="outline-primary" size="sm" onClick={this.handleClick}>
-                            Delivered
+                            <Button variant="outline-primary" size="sm" onClick={this.handleClick2}>
+                            View Invoice
+                            </Button>
+                            <Button className="set-delivered" variant="outline-primary" size="sm" onClick={this.handleClick1}>
+                            Set Delivered
                             </Button>
                           </Card.Body>
                         </Accordion.Collapse>
@@ -53,8 +63,56 @@ class DriverActiveInvoices extends Component {
                           </Accordion.Toggle>
                         <Accordion.Collapse eventKey="1">
                           <Card.Body>
-                            <Button className="set-delivered" variant="outline-primary" size="sm" onClick={this.handleClick}>
-                            Delivered
+                            <Button variant="outline-primary" size="sm" onClick={this.handleClick2}>
+                            View Invoice
+                            </Button>
+                            <Button className="set-delivered" variant="outline-primary" size="sm" onClick={this.handleClick1}>
+                            Set Delivered
+                            </Button>
+                          </Card.Body>
+                        </Accordion.Collapse>
+                      </Card>
+                      <Card>
+                          <Accordion.Toggle as={Card.Header} variant="link" eventKey="2">
+                            XXXXX UNDELIVERED
+                          </Accordion.Toggle>
+                        <Accordion.Collapse eventKey="2">
+                          <Card.Body>
+                            <Button variant="outline-primary" size="sm" onClick={this.handleClick2}>
+                            View Invoice
+                            </Button>
+                            <Button className="set-delivered" variant="outline-primary" size="sm" onClick={this.handleClick1}>
+                            Set Delivered
+                            </Button>
+                          </Card.Body>
+                        </Accordion.Collapse>
+                      </Card>
+                      <Card>
+                          <Accordion.Toggle as={Card.Header} variant="link" eventKey="3">
+                            XXXXX UNDELIVERED
+                          </Accordion.Toggle>
+                        <Accordion.Collapse eventKey="3">
+                          <Card.Body>
+                            <Button variant="outline-primary" size="sm" onClick={this.handleClick2}>
+                            View Invoice
+                            </Button>
+                            <Button className="set-delivered" variant="outline-primary" size="sm" onClick={this.handleClick1}>
+                            Set Delivered
+                            </Button>
+                          </Card.Body>
+                        </Accordion.Collapse>
+                      </Card>
+                      <Card>
+                          <Accordion.Toggle as={Card.Header} variant="link" eventKey="4">
+                            XXXXX UNDELIVERED
+                          </Accordion.Toggle>
+                        <Accordion.Collapse eventKey="4">
+                          <Card.Body>
+                            <Button variant="outline-primary" size="sm" onClick={this.handleClick2}>
+                            View Invoice
+                            </Button>
+                            <Button className="set-delivered" variant="outline-primary" size="sm" onClick={this.handleClick1}>
+                            Set Delivered
                             </Button>
                           </Card.Body>
                         </Accordion.Collapse>

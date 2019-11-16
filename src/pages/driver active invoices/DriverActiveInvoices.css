@@ -26,6 +26,11 @@ h6 {
     word-spacing: 38px;
 }
 
+.set-delivered{
+    position: absolute;
+    right: 20px ;
+}
+
 .Scotiabank-logo {
   position: relative;
   width: auto;
