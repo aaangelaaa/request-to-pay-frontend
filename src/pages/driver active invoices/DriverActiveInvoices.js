@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Accordion, Card, Button, Form} from 'react-bootstrap';
-import './DriverActiveInvoices.css';
 
 {/* Driver's Active Invoices*/}
 
@@ -40,7 +39,7 @@ class DriverActiveInvoices extends Component {
             <div className="driver-pg">
                 <h3 className="driver-header">View Undelivered Invoices</h3>
                 <h6>Invoice# Status</h6>
-                <div className="invoice">
+                <div className="list-invoices">
                     <Accordion>
                       <Card>
                           <Accordion.Toggle as={Card.Header} variant="link" eventKey="0">
