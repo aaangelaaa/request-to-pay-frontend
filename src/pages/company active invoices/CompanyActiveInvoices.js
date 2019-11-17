@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Accordion, Card, Button, Form} from 'react-bootstrap';
 import './CompanyActiveInvoices.css';
 
-{/* Driver's Active Invoices*/}
+{/* Company's Active Invoices*/}
 
 class CompanyActiveInvoices extends Component {
     constructor(props) {
