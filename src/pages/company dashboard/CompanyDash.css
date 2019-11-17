@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap');
+
+.company-dash {
+    height: auto;
+    padding: 10%;
+}
+
+.company-header {
+    position: relative;
+    top: 0;
+    left: 0;
+
+    text-align: center;
+    font-family: 'Julius Sans One', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;   
+
+    color: #EE3124;
+}
+
+.Scotiabank-logo {
+  position: relative;
+  width: auto;
+  height: 82px;
+  left: auto;
+  top: 4vw;
+}
+
+.container {
+    width: 70vw;
+    height: 50vw;
+    background-color: transparent;
+  
+    position: relative;
+    top: 0vw;
+    left: 0vw;
+    text-align: left;
+    margin: auto;
+    border-radius: 0;
+}
+
+.password {
+    position: relative;
+    top: -23px;
+}
+
+.login-button {
+    position: relative;
+    top: 0vw;
+    display: flex;
+    justify-content: center;
+}
+
+.bad-login {
+    color: red;
+    margin-top: 10px;
+}
