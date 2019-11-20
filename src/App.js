@@ -3,6 +3,7 @@ import logo from './images/Scotiabank logo.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button } from 'react-bootstrap'
 import './App.css';
+import Routing from './helpers/Routing.js';
 import LoginPage from './pages/login/LoginPage.js';
 import DriverDash from './pages/driver dashboard/DriverDash.js';
 import DriverActiveInvoices from './pages/driver active invoices/DriverActiveInvoices.js';
@@ -20,7 +21,7 @@ import CreateInvoice from './pages/company create invoice/CreateInvoice.js';
 
 function App() {
   return (
-    <LoginPage/>  
+    <Routing/>  
   );
 }
 
