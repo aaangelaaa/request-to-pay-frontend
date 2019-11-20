@@ -19,20 +19,16 @@ class SBOPastInvoices extends Component {
 
     handleClick1 (e) {
         e.preventDefault();
-        // switch pages
-        console.log("hello!");
+        window.location.href = "/invoice";
     }
 
     handleClick2 (e) {
         e.preventDefault();
-        // switch pages
-        console.log("hello2!");
     }
 
     handleBack (e) {
         e.preventDefault();
-        // switcc pages
-        console.log("logging out!");
+        window.location.href = "/sbodash";
     }
 
     render () {
@@ -49,10 +45,10 @@ class SBOPastInvoices extends Component {
                         <Accordion.Collapse eventKey="0">
                           <Card.Body style={{wordSpacing:"1px"}}>
                             <strong>Status:</strong> Paid, Delivered<br></br>
-                            <Button variant="outline-primary" size="sm" onClick={this.handleClick2}>
+                            <Button variant="outline-primary" size="sm" onClick={this.handleClick1}>
                             View Invoice
                             </Button>
-                            <Button className="set-delivered" variant="outline-danger" size="sm" onClick={this.handleClick1}>
+                            <Button className="set-delivered" variant="outline-danger" size="sm" onClick={this.handleClick2}>
                             Report Error
                             </Button>
                           </Card.Body>
@@ -65,10 +61,10 @@ class SBOPastInvoices extends Component {
                         <Accordion.Collapse eventKey="1">
                           <Card.Body style={{wordSpacing:"1px"}}>
                             <strong>Status:</strong> Paid, Delivered<br></br>
-                            <Button variant="outline-primary" size="sm" onClick={this.handleClick2}>
+                            <Button variant="outline-primary" size="sm" onClick={this.handleClick1}>
                             View Invoice
                             </Button>
-                            <Button className="set-delivered" variant="outline-danger" size="sm" onClick={this.handleClick1}>
+                            <Button className="set-delivered" variant="outline-danger" size="sm" onClick={this.handleClick2}>
                             Report Error
                             </Button>
                           </Card.Body>
@@ -81,10 +77,10 @@ class SBOPastInvoices extends Component {
                         <Accordion.Collapse eventKey="2">
                           <Card.Body style={{wordSpacing:"1px"}}>
                             <strong>Status:</strong> Paid, Delivered<br></br>
-                            <Button variant="outline-primary" size="sm" onClick={this.handleClick2}>
+                            <Button variant="outline-primary" size="sm" onClick={this.handleClick1}>
                             View Invoice
                             </Button>
-                            <Button className="set-delivered" variant="outline-danger" size="sm" onClick={this.handleClick1}>
+                            <Button className="set-delivered" variant="outline-danger" size="sm" onClick={this.handleClick2}>
                             Report Error
                             </Button>
                           </Card.Body>
@@ -97,10 +93,10 @@ class SBOPastInvoices extends Component {
                         <Accordion.Collapse eventKey="3">
                           <Card.Body style={{wordSpacing:"1px"}}>
                             <strong>Status:</strong> Paid, Delivered<br></br>
-                            <Button variant="outline-primary" size="sm" onClick={this.handleClick2}>
+                            <Button variant="outline-primary" size="sm" onClick={this.handleClick1}>
                             View Invoice
                             </Button>
-                            <Button className="set-delivered" variant="outline-danger" size="sm" onClick={this.handleClick1}>
+                            <Button className="set-delivered" variant="outline-danger" size="sm" onClick={this.handleClick2}>
                             Report Error
                             </Button>
                           </Card.Body>
@@ -113,10 +109,10 @@ class SBOPastInvoices extends Component {
                         <Accordion.Collapse eventKey="4">
                           <Card.Body style={{wordSpacing:"1px"}}>
                             <strong>Status:</strong> Paid, Delivered<br></br>
-                            <Button variant="outline-primary" size="sm" onClick={this.handleClick2}>
+                            <Button variant="outline-primary" size="sm" onClick={this.handleClick1}>
                             View Invoice
                             </Button>
-                            <Button className="set-delivered" variant="outline-danger" size="sm" onClick={this.handleClick1}>
+                            <Button className="set-delivered" variant="outline-danger" size="sm" onClick={this.handleClick2}>
                             Report Error
                             </Button>
                           </Card.Body>

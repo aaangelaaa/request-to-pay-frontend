@@ -19,20 +19,17 @@ class SBODash extends Component {
 
     handleClick1 (e) {
         e.preventDefault();
-        // switch pages
-        console.log("hello!");
+        window.location.href = "/sboactiveinvoices";
     }
 
     handleClick2 (e) {
         e.preventDefault();
-        // switcc pages
-        console.log("goodbye!");
+        window.location.href = "/sbopastinvoices";
     }
 
     handleLogout (e) {
         e.preventDefault();
-        // switcc pages
-        console.log("logging out!");
+        window.location.href = "/";
     }
 
     render () {
