@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap');
+
+.invoice {
+    height: auto;
+    padding: 10%;
+}
+
+.invoice-header1 {
+    position: relative;
+    top: 0;
+    left: 0;
+
+    text-align: left;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.invoice-header2 {
+    position: absolute;
+    top: 5%;
+    left: 75%;
+
+    text-align: right;
+    font-style: normal;
+    font-weight: bold;
+    word-spacing: 1px
+}
+
+.invoice-titles{
+    position: absolute;
+    top: 18%;
+    left: 50%;
+
+    text-align: right;
+    font-size: 10px;
+}
+
+.invoice-data{
+    position: absolute;
+    top: 18%;
+    right: 10%;
+
+    text-align: right;
+    font-size: 10px;
+}
+
+.Scotiabank-logo {
+  position: relative;
+  width: auto;
+  height: 82px;
+  left: auto;
+  top: 4vw;
+}
+
+.container {
+    width: 70vw;
+    height: 50vw;
+    background-color: transparent;
+  
+    position: relative;
+    top: 0vw;
+    left: 0vw;
+    text-align: left;
+    margin: auto;
+    border-radius: 0;
+}

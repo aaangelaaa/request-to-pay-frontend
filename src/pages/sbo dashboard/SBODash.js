@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button } from 'react-bootstrap';
-import './DriverDash.css';
+import './SBODash.css';
 
-{/* Driver Dashboard */}
+{/* SBO Dashboard */}
 
-class DriverDash extends Component {
+class SBODash extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -19,12 +19,12 @@ class DriverDash extends Component {
 
     handleClick1 (e) {
         e.preventDefault();
-        window.location.href = "/driveractiveinvoices";
+        window.location.href = "/sboactiveinvoices";
     }
 
     handleClick2 (e) {
         e.preventDefault();
-        window.location.href = "/driverpastinvoices";
+        window.location.href = "/sbopastinvoices";
     }
 
     handleLogout (e) {
@@ -34,8 +34,8 @@ class DriverDash extends Component {
 
     render () {
         return (
-            <div className="driver-dash">
-                <h3 className="driver-header">Driver Dashbaord</h3>
+            <div className="sbo-dash">
+                <h3 className="sbo-header">Business Dashbaord</h3>
                 <Button variant="primary" size="lg" block onClick={this.handleClick1}>View Undelivered Invoices</Button>
                 <Button variant="secondary" size="lg" block onClick={this.handleClick2}>View Past Invoices</Button>
                 <Button variant="primary" size="sm" onClick={this.handleLogout}>Logout</Button>
@@ -44,4 +44,4 @@ class DriverDash extends Component {
     }
 }
 
-export default DriverDash;
+export default SBODash;

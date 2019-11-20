@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap');
+
+h6 {
+  word-spacing: 30px;
+}
+
+.driver-pg {
+    height: auto;
+    padding: 10%;
+}
+
+.driver-header {
+    position: relative;
+    top: 0;
+    left: 0;
+
+    text-align: center;
+    font-family: 'Julius Sans One', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;   
+}
+
+.list-invoices {
+    font-size: 12px;
+    word-spacing: 38px;
+}
+
+.set-delivered{
+    position: absolute;
+    right: 20px ;
+}
+
+.Scotiabank-logo {
+  position: relative;
+  width: auto;
+  height: 82px;
+  left: auto;
+  top: 4vw;
+}
+
+.container {
+    width: 70vw;
+    height: 50vw;
+    background-color: transparent;
+  
+    position: relative;
+    top: 0vw;
+    left: 0vw;
+    text-align: left;
+    margin: auto;
+    border-radius: 0;
+}
+
+.password {
+    position: relative;
+    top: -23px;
+}
+
+.login-button {
+    position: relative;
+    top: 0vw;
+    display: flex;
+    justify-content: center;
+}

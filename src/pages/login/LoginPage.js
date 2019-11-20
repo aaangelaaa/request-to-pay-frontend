@@ -38,8 +38,24 @@ class LoginPage extends Component {
     handleClick (e) {
         e.preventDefault();
         // get info from backend here
-        this.userType = "Driver";
+        if (this.username == "driver@gmail.com") {
+            this.userType = "Driver";
+        } else if (this.username == "sbo@gmail.com") {
+            this.userType = "SBO";
+        } else {
+            this.userType = "Company";
+        };
+        
         console.log(this.userType + " Dashboard");
+
+        if (this.userType == "Driver") {
+            window.location.href = "/driverdash";
+        } else if (this.userType == "SBO") {
+            window.location.href = "/sbodash";
+        } else {
+            window.location.href = "/companydash";
+        };
+
     }
 
     render () {
@@ -49,12 +65,12 @@ class LoginPage extends Component {
                 <Form onSubmit={this.handleClick}>
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Control type="email" placeholder="Enter email" onChange={this.handleUsername}/>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
+                        <Form.Control type="password" placeholder="Password" onChange={this.handlePassword}/>
                     </Form.Group>
                     
                     <Button variant="primary" type="submit">
