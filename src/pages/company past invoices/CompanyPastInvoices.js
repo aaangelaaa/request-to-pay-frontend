@@ -19,20 +19,15 @@ class CompanyPastInvoices extends Component {
 
     handleClick1 (e) {
         e.preventDefault();
-        // switch pages
-        console.log("hello!");
     }
 
     handleClick2 (e) {
         e.preventDefault();
-        // switch pages
-        console.log("hello2!");
     }
 
     handleBack (e) {
         e.preventDefault();
-        // switcc pages
-        console.log("logging out!");
+        window.location.href = "/companydash";
     }
 
     render () {

@@ -18,6 +18,7 @@ class CreateInvoice extends Component {
 
     handleBack (e) {
         e.preventDefault();
+        window.location.href = "/companydash";
     }
 
     handleClick (e) {

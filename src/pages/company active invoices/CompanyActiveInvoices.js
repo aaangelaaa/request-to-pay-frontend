@@ -19,20 +19,16 @@ class CompanyActiveInvoices extends Component {
 
     handleClick1 (e) {
         e.preventDefault();
-        // switch pages
-        console.log("hello!");
+        window.location.href = "/invoice";
     }
 
     handleClick2 (e) {
         e.preventDefault();
-        // switch pages
-        console.log("hello2!");
     }
 
     handleBack (e) {
         e.preventDefault();
-        // switcc pages
-        console.log("logging out!");
+        window.location.href = "/companydash";
     }
 
     render () {

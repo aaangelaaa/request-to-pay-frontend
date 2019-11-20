@@ -20,26 +20,22 @@ class CompanyDash extends Component {
 
     handleClick1 (e) {
         e.preventDefault();
-        // switch pages
-        console.log("hello!");
+        window.location.href = "/companyactiveinvoices";
     }
 
     handleClick2 (e) {
         e.preventDefault();
-        // switcc pages
-        console.log("goodbye!");
+        window.location.href = "/companypastinvoices";
     }
 
     handleClick3 (e) {
         e.preventDefault();
-        // switcc pages
-        console.log("new invoice!");
+        window.location.href = "/createinvoice";
     }
 
     handleLogout (e) {
         e.preventDefault();
-        // switcc pages
-        console.log("logging out!");
+        window.location.href = "/";
     }
 
     render () {
