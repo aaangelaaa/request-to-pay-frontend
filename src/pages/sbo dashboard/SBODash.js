@@ -35,7 +35,7 @@ class SBODash extends Component {
     render () {
         return (
             <div className="sbo-dash">
-                <h3 className="sbo-header">Business Dashbaord</h3>
+                <h3 className="sbo-header">Business Dashboard</h3>
                 <Button variant="primary" size="lg" block onClick={this.handleClick1}>View Undelivered Invoices</Button>
                 <Button variant="secondary" size="lg" block onClick={this.handleClick2}>View Past Invoices</Button>
                 <Button variant="primary" size="sm" onClick={this.handleLogout}>Logout</Button>

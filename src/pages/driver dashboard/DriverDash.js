@@ -35,7 +35,7 @@ class DriverDash extends Component {
     render () {
         return (
             <div className="driver-dash">
-                <h3 className="driver-header">Driver Dashbaord</h3>
+                <h3 className="driver-header">Driver Dashboard</h3>
                 <Button variant="primary" size="lg" block onClick={this.handleClick1}>View Undelivered Invoices</Button>
                 <Button variant="secondary" size="lg" block onClick={this.handleClick2}>View Past Invoices</Button>
                 <Button variant="primary" size="sm" onClick={this.handleLogout}>Logout</Button>
