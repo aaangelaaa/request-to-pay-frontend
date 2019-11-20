@@ -19,20 +19,17 @@ class DriverDash extends Component {
 
     handleClick1 (e) {
         e.preventDefault();
-        // switch pages
-        console.log("hello!");
+        window.location.href = "/driveractiveinvoices";
     }
 
     handleClick2 (e) {
         e.preventDefault();
-        // switcc pages
-        console.log("goodbye!");
+        window.location.href = "/driverpastinvoices";
     }
 
     handleLogout (e) {
         e.preventDefault();
-        // switcc pages
-        console.log("logging out!");
+        window.location.href = "/";
     }
 
     render () {

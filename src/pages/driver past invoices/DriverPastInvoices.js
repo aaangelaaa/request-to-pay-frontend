@@ -18,14 +18,12 @@ class DriverPastInvoices extends Component {
 
     handleClick (e) {
         e.preventDefault();
-        // switch pages
-        console.log("hello!");
+        window.location.href = "/invoice";
     }
 
     handleBack (e) {
         e.preventDefault();
-        // switcc pages
-        console.log("logging out!");
+        window.location.href = "/driverdash";
     }
 
     render () {

@@ -19,20 +19,16 @@ class DriverActiveInvoices extends Component {
 
     handleClick1 (e) {
         e.preventDefault();
-        // switch pages
-        console.log("hello!");
+        window.location.href = "/invoice"
     }
 
     handleClick2 (e) {
         e.preventDefault();
-        // switch pages
-        console.log("hello2!");
     }
 
     handleBack (e) {
         e.preventDefault();
-        // switcc pages
-        console.log("logging out!");
+        window.location.href = "/driverdash";
     }
 
     render () {
@@ -48,10 +44,10 @@ class DriverActiveInvoices extends Component {
                           </Accordion.Toggle>
                         <Accordion.Collapse eventKey="0">
                           <Card.Body>
-                            <Button variant="outline-primary" size="sm" onClick={this.handleClick2}>
+                            <Button variant="outline-primary" size="sm" onClick={this.handleClick1}>
                             View Invoice
                             </Button>
-                            <Button className="set-delivered" variant="outline-primary" size="sm" onClick={this.handleClick1}>
+                            <Button className="set-delivered" variant="outline-primary" size="sm" onClick={this.handleClick2}>
                             Set Delivered
                             </Button>
                           </Card.Body>
@@ -63,10 +59,10 @@ class DriverActiveInvoices extends Component {
                           </Accordion.Toggle>
                         <Accordion.Collapse eventKey="1">
                           <Card.Body>
-                            <Button variant="outline-primary" size="sm" onClick={this.handleClick2}>
+                            <Button variant="outline-primary" size="sm" onClick={this.handleClick1}>
                             View Invoice
                             </Button>
-                            <Button className="set-delivered" variant="outline-primary" size="sm" onClick={this.handleClick1}>
+                            <Button className="set-delivered" variant="outline-primary" size="sm" onClick={this.handleClick2}>
                             Set Delivered
                             </Button>
                           </Card.Body>
@@ -78,10 +74,10 @@ class DriverActiveInvoices extends Component {
                           </Accordion.Toggle>
                         <Accordion.Collapse eventKey="2">
                           <Card.Body>
-                            <Button variant="outline-primary" size="sm" onClick={this.handleClick2}>
+                            <Button variant="outline-primary" size="sm" onClick={this.handleClick1}>
                             View Invoice
                             </Button>
-                            <Button className="set-delivered" variant="outline-primary" size="sm" onClick={this.handleClick1}>
+                            <Button className="set-delivered" variant="outline-primary" size="sm" onClick={this.handleClick2}>
                             Set Delivered
                             </Button>
                           </Card.Body>
@@ -93,10 +89,10 @@ class DriverActiveInvoices extends Component {
                           </Accordion.Toggle>
                         <Accordion.Collapse eventKey="3">
                           <Card.Body>
-                            <Button variant="outline-primary" size="sm" onClick={this.handleClick2}>
+                            <Button variant="outline-primary" size="sm" onClick={this.handleClick1}>
                             View Invoice
                             </Button>
-                            <Button className="set-delivered" variant="outline-primary" size="sm" onClick={this.handleClick1}>
+                            <Button className="set-delivered" variant="outline-primary" size="sm" onClick={this.handleClick2}>
                             Set Delivered
                             </Button>
                           </Card.Body>
@@ -108,10 +104,10 @@ class DriverActiveInvoices extends Component {
                           </Accordion.Toggle>
                         <Accordion.Collapse eventKey="4">
                           <Card.Body>
-                            <Button variant="outline-primary" size="sm" onClick={this.handleClick2}>
+                            <Button variant="outline-primary" size="sm" onClick={this.handleClick1}>
                             View Invoice
                             </Button>
-                            <Button className="set-delivered" variant="outline-primary" size="sm" onClick={this.handleClick1}>
+                            <Button className="set-delivered" variant="outline-primary" size="sm" onClick={this.handleClick2}>
                             Set Delivered
                             </Button>
                           </Card.Body>
