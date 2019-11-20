@@ -1,7 +1,7 @@
 export const DEFAULT_HANDLER = alert;
 
 export const get = (href, handler = DEFAULT_HANDLER) => {
-    const token = localStorage.get('token');
+    const token = localStorage.getItem('token');
     let headers = {};
     if (token){
         headers['Authorization'] = "Token "+token;

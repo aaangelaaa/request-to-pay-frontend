@@ -8,7 +8,7 @@ const DefaultPlaceholder = () => (
   </Spinner>
 );
 
-export class DataProvider extends React.Component {
+export default class DataProvider extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
