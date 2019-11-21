@@ -37,10 +37,20 @@ class LoginPage extends Component {
 
   handleClick(update) {
     const { username, password } = this.state;
+    const { history } = this.props;
     
     auth.login(username, password)
     .then(auth.profile)
-    .then(data => update({...data}));
+    .then(data => {update({...data}); return data;})
+    .then(({user_type}) => {
+        if (user_type === 'D'){
+            history.push('/driverdash');
+        } else if (user_type === 'S'){
+            alert("you're a supplier!");
+        } else {
+            alert("you're a small business owner!")
+        }
+    });
     
   }
 

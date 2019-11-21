@@ -31,49 +31,21 @@ import CreateInvoice from '../pages/company create invoice/CreateInvoice.js';
 export default function Routing() {
   return (
     <Router>
-      <div>
         <Switch>
-          <Route exact path="/">
-            <LoginPage />
-          </Route>
-          <Route path="/driverdash">
-            <DriverDash />
-          </Route>
-          <Route path="/driveractiveinvoices">
-            <DriverActiveInvoices />
-          </Route>
-          <Route path="/driverpastinvoices">
-            <DriverPastInvoices />
-          </Route>
-          <Route path="/invoice">
-            <Invoice />
-          </Route>
-          <Route path="/sbodash">
-            <SBODash />
-          </Route>
-          <Route path="/sboactiveinvoices">
-            <SBOActiveInvoices />
-          </Route>
-          <Route path="/sbopastinvoices">
-            <SBOPastInvoices />
-          </Route>
-          <Route path="/interacconf">
-            <InteracConfirmation />
-          </Route>
-          <Route path="/companydash">
-            <CompanyDash />
-          </Route>
-          <Route path="/companyactiveinvoices">
-            <CompanyActiveInvoices />
-          </Route>
-          <Route path="/companypastinvoices">
-            <CompanyPastInvoices />
-          </Route>
-          <Route path="/createinvoice">
-            <CreateInvoice />
-          </Route>
+          <Route exact path="/" component={LoginPage}/>
+          <Route exact path="/driverdash" component={DriverDash}/>
+          <Route exact path="/driveractiveinvoices" component={DriverActiveInvoices} />
+          <Route exact path="/driverpastinvoices" component={DriverPastInvoices} />
+          <Route exact path="/invoice" component={Invoice} />
+          <Route exact path="/sbodash" component={SBODash} />
+          <Route exact path="/sboactiveinvoices" component={SBOActiveInvoices} />
+          <Route exact path="/sbopastinvoices" component={SBOPastInvoices} />
+          <Route exact path="/interacconf" component={InteracConfirmation} />
+          <Route exact path="/companydash" component={CompanyDash} />
+          <Route exact path="/companyactiveinvoices" component={CompanyActiveInvoices} />
+          <Route exact path="/companypastinvoices" component={CompanyPastInvoices} />
+          <Route exact path="/createinvoice" component={CreateInvoice} />
         </Switch>
-      </div>
     </Router>
   );
 }
