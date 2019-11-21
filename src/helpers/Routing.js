@@ -6,7 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import LoginPage from '../pages/login/LoginPage.js';
-import SignUp from './pages/signup/SignUp.js';
+import SignUp from '../pages/signup/SignUp.js';
 import DriverDash from '../pages/driver dashboard/DriverDash.js';
 import DriverActiveInvoices from '../pages/driver active invoices/DriverActiveInvoices.js';
 import DriverPastInvoices from '../pages/driver past invoices/DriverPastInvoices.js';
