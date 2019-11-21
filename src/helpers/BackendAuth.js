@@ -3,19 +3,20 @@ export const DEFAULT_HANDLER = alert;
 export const get = (href, handler = DEFAULT_HANDLER) => {
     const token = localStorage.getItem('token');
     let headers = {};
-    if (token){
-        headers['Authorization'] = "Token "+token;
+    if (token) {
+        headers['Authorization'] = "Token " + token;
     }
     return fetch(
-        href,
-        {headers}
-    ).then(res => {
-        if (res.ok) {
-            return res.json();
-        }
-        throw new Error("something went wrong trying to GET " + href);
-    })
-    .catch(handler);
+            href, {
+                headers
+            }
+        ).then(res => {
+            if (res.ok) {
+                return res.json();
+            }
+            throw new Error("something went wrong trying to GET " + href);
+        })
+        .catch(handler);
 
 }
 
@@ -40,4 +41,9 @@ export const post = (href, body, handler = DEFAULT_HANDLER) => {
 export const login = (username, password) => post('/userapi/auth/', {
     username,
     password
-}).then(res => localStorage.setItem('token', res.token));
+}).then(res => {
+    localStorage.setItem('token', res.token);
+    return res;
+});
+
+export const profile = () => get('/userapi/');
