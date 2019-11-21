@@ -19,7 +19,7 @@ class DriverActiveInvoices extends Component {
 
     handleClick1 (e) {
         e.preventDefault();
-        window.location.href = "/invoice"
+        this.props.history.push("/invoice");
     }
 
     handleClick2 (e) {
@@ -28,7 +28,7 @@ class DriverActiveInvoices extends Component {
 
     handleBack (e) {
         e.preventDefault();
-        window.location.href = "/driverdash";
+        this.props.history.push("/driverdash");
     }
 
     render () {

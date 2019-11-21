@@ -18,12 +18,12 @@ class DriverPastInvoices extends Component {
 
     handleClick (e) {
         e.preventDefault();
-        window.location.href = "/invoice";
+        this.props.history.push("/invoice");
     }
 
     handleBack (e) {
         e.preventDefault();
-        window.location.href = "/driverdash";
+        this.props.history.push("/driverdash");
     }
 
     render () {

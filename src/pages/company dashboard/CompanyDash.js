@@ -20,22 +20,22 @@ class CompanyDash extends Component {
 
     handleClick1 (e) {
         e.preventDefault();
-        window.location.href = "/companyactiveinvoices";
+        this.props.history.push("/companyactiveinvoices");
     }
 
     handleClick2 (e) {
         e.preventDefault();
-        window.location.href = "/companypastinvoices";
+        this.props.history.push("/companypastinvoices");
     }
 
     handleClick3 (e) {
         e.preventDefault();
-        window.location.href = "/createinvoice";
+        this.props.history.push("/createinvoice");
     }
 
     handleLogout (e) {
         e.preventDefault();
-        window.location.href = "/";
+        this.props.history.push("/");
     }
 
     render () {

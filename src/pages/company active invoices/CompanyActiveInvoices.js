@@ -19,7 +19,7 @@ class CompanyActiveInvoices extends Component {
 
     handleClick1 (e) {
         e.preventDefault();
-        window.location.href = "/invoice";
+        this.props.history.push("/invoice");
     }
 
     handleClick2 (e) {
@@ -28,7 +28,7 @@ class CompanyActiveInvoices extends Component {
 
     handleBack (e) {
         e.preventDefault();
-        window.location.href = "/companydash";
+        this.props.history.push("/companydash");
     }
 
     render () {

@@ -27,7 +27,7 @@ class CompanyPastInvoices extends Component {
 
     handleBack (e) {
         e.preventDefault();
-        window.location.href = "/companydash";
+        this.props.history.push("/companydash");
     }
 
     render () {

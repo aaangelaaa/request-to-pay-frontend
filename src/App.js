@@ -18,15 +18,34 @@ import CompanyActiveInvoices from "./pages/company active invoices/CompanyActive
 import CompanyPastInvoices from "./pages/company past invoices/CompanyPastInvoices.js";
 import CreateInvoice from "./pages/company create invoice/CreateInvoice.js";
 
+import * as auth from "./helpers/BackendAuth";
+
 const GlobalState = React.createContext();
 
 class App extends React.Component {
-  state = {
-    user: null
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: undefined,
+      loading: !!localStorage.getItem("token")
+    };
+  }
+
+  componentDidMount() {
+    const token = localStorage.getItem("token");
+    if (token) {
+      this.setState({ loading: true }, () =>
+        auth.profile().then(data => this.setState({ ...data, loading: false }))
+      );
+    } else {
+      this.setState({ loading: false });
+    }
+  }
 
   render() {
-    return (
+    return this.state.loading ? (
+      <p>loading...</p>
+    ) : (
       <GlobalState.Provider
         value={{
           state: this.state,
