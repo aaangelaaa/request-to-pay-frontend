@@ -6,6 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import LoginPage from '../pages/login/LoginPage.js';
+import SignUp from './pages/signup/SignUp.js';
 import DriverDash from '../pages/driver dashboard/DriverDash.js';
 import DriverActiveInvoices from '../pages/driver active invoices/DriverActiveInvoices.js';
 import DriverPastInvoices from '../pages/driver past invoices/DriverPastInvoices.js';
@@ -35,6 +36,9 @@ export default function Routing() {
         <Switch>
           <Route exact path="/">
             <LoginPage />
+          </Route>
+          <Route path="/signup">
+            <SignUp />
           </Route>
           <Route path="/driverdash">
             <DriverDash />
