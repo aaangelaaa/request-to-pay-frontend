@@ -1,5 +1,5 @@
 export const DEFAULT_HANDLER = alert;
-const NOOP = () => undefined;
+export const NOOP = () => undefined;
 
 export const get = (href, handler = DEFAULT_HANDLER) => {
     const token = localStorage.getItem('token');
@@ -50,5 +50,5 @@ export function login(username, password) {
     })
 };
 export function profile(){
-    return get('/userapi', ...arguments)
+    return get('/userapi/', ...arguments)
 }

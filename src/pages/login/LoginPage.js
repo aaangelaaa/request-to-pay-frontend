@@ -36,6 +36,15 @@ class LoginPage extends Component {
     this.setState({ password: e.target.value });
   }
 
+  reroute(user_type){
+    const {history} = this.props;
+    if (user_type === 'D'){
+      history.push('/driverdash');
+    } else if (user_type === 'S'){
+      history.push('/supplierdash');
+    } else{}
+  }
+
   handleClick(update) {
     const { username, password } = this.state;
     const { history } = this.props;

@@ -40,6 +40,7 @@ export default class DataProvider extends React.Component {
   render() {
     const { children } = this.props;
     const { data, loaded, error, placeholder } = this.state;
+
     return loaded ? children({ data, error }) : placeholder;
   }
 }

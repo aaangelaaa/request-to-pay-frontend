@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Accordion, Card, Button, Form} from 'react-bootstrap';
+import InvoiceAccordionItem from '../../components/InvoiceAccordionItem';
+import {GlobalState} from '../../App';
+import DataProvider from '../../helpers/DataProvider';
 import './DriverActiveInvoices.css';
 
 {/* Driver's Active Invoices*/}
+
 
 class DriverActiveInvoices extends Component {
     constructor(props) {
@@ -33,90 +37,34 @@ class DriverActiveInvoices extends Component {
 
     render () {
         return (
+          <GlobalState.Consumer>
+          {({ state }) => state.user && (
             <div className="driver-pg">
-                <h3 className="driver-header">View Undelivered Invoices</h3>
-                <h6>Invoice# Status</h6>
-                <div className="list-invoices">
-                    <Accordion>
-                      <Card>
-                          <Accordion.Toggle as={Card.Header} variant="link" eventKey="0">
-                            XXXXX UNDELIVERED
-                          </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="0">
-                          <Card.Body>
-                            <Button variant="outline-primary" size="sm" onClick={this.handleClick1}>
-                            View Invoice
-                            </Button>
-                            <Button className="set-delivered" variant="outline-primary" size="sm" onClick={this.handleClick2}>
-                            Set Delivered
-                            </Button>
-                          </Card.Body>
-                        </Accordion.Collapse>
-                      </Card>
-                      <Card>
-                          <Accordion.Toggle as={Card.Header} variant="link" eventKey="1">
-                            XXXXX UNDELIVERED
-                          </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="1">
-                          <Card.Body>
-                            <Button variant="outline-primary" size="sm" onClick={this.handleClick1}>
-                            View Invoice
-                            </Button>
-                            <Button className="set-delivered" variant="outline-primary" size="sm" onClick={this.handleClick2}>
-                            Set Delivered
-                            </Button>
-                          </Card.Body>
-                        </Accordion.Collapse>
-                      </Card>
-                      <Card>
-                          <Accordion.Toggle as={Card.Header} variant="link" eventKey="2">
-                            XXXXX UNDELIVERED
-                          </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="2">
-                          <Card.Body>
-                            <Button variant="outline-primary" size="sm" onClick={this.handleClick1}>
-                            View Invoice
-                            </Button>
-                            <Button className="set-delivered" variant="outline-primary" size="sm" onClick={this.handleClick2}>
-                            Set Delivered
-                            </Button>
-                          </Card.Body>
-                        </Accordion.Collapse>
-                      </Card>
-                      <Card>
-                          <Accordion.Toggle as={Card.Header} variant="link" eventKey="3">
-                            XXXXX UNDELIVERED
-                          </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="3">
-                          <Card.Body>
-                            <Button variant="outline-primary" size="sm" onClick={this.handleClick1}>
-                            View Invoice
-                            </Button>
-                            <Button className="set-delivered" variant="outline-primary" size="sm" onClick={this.handleClick2}>
-                            Set Delivered
-                            </Button>
-                          </Card.Body>
-                        </Accordion.Collapse>
-                      </Card>
-                      <Card>
-                          <Accordion.Toggle as={Card.Header} variant="link" eventKey="4">
-                            XXXXX UNDELIVERED
-                          </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="4">
-                          <Card.Body>
-                            <Button variant="outline-primary" size="sm" onClick={this.handleClick1}>
-                            View Invoice
-                            </Button>
-                            <Button className="set-delivered" variant="outline-primary" size="sm" onClick={this.handleClick2}>
-                            Set Delivered
-                            </Button>
-                          </Card.Body>
-                        </Accordion.Collapse>
-                      </Card>
-                    </Accordion>
-                </div>
-                <Button variant="secondary" size="sm" onClick={this.handleBack}>Back</Button>
+              <h3 className="driver-header">View Active Invoices</h3>
+              <h6>Invoice# Date</h6>
+              <div className="list-invoices">
+                <Accordion>
+                  <DataProvider href={`/api/invoices/?driver=${state.id}&status=A`}>
+                    {({ data }) =>
+                      <React.Fragment>
+                        {data.map((invoice, i) => (
+                          <InvoiceAccordionItem
+                            i={i}
+                            invoice={invoice}
+                            onClick={this.handleClick2.bind(this)}
+                          />
+                        ))}
+                      </React.Fragment>
+                    }
+                  </DataProvider>
+                </Accordion>
+              </div>
+              <Button variant="secondary" size="sm" onClick={this.handleBack}>
+                Back
+              </Button>
             </div>
+          )}
+        </GlobalState.Consumer>
         );
     }
 }

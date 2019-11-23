@@ -42,7 +42,7 @@ class DriverDash extends Component {
       <div className="driver-dash">
         <h3 className="driver-header">Driver Dashboard</h3>
         <GlobalState.Consumer>
-          {({ state, loading }) => loading && state.user ? (
+          {({ state, loading }) => loading || !state.user ? (
               <p>loading</p>
             ) : (
               <h3>
