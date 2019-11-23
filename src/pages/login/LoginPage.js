@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Button } from "react-bootstrap";
+import logo from "../../images/Scotiabank logo.png";
 import * as auth from "../../helpers/BackendAuth.js";
 import LoginConfirmation from "../login confirmation/LoginConfirmation.js";
 import { GlobalState } from "../../App";
@@ -39,7 +40,7 @@ class LoginPage extends Component {
     const { username, password } = this.state;
     const { history } = this.props;
     
-    auth.login(username, password)
+    auth.login(username, password, () => alert('yeet'))
     .then(auth.profile)
     .then(data => {update({...data}); return data;})
     .then(({user_type}) => {
@@ -50,7 +51,8 @@ class LoginPage extends Component {
         } else {
             alert("you're a small business owner!")
         }
-    });
+    })
+    .catch(error => this.setState({error}));
     
   }
 
@@ -60,6 +62,9 @@ class LoginPage extends Component {
         {({ update }) => (
           <div className="login">
             <h3 className="login-header">Login</h3>
+            <div className="logo-container">
+              <img className="logo" src={logo} alt=""/>
+            </div>
             <Form>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
@@ -86,6 +91,7 @@ class LoginPage extends Component {
               >
                 Submit
               </Button>
+              {this.state.error && <p>Something went wrong logging in. Please try again.</p>}
             </Form>
           </div>
         )}

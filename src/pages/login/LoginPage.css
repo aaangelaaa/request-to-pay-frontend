@@ -56,3 +56,15 @@
     color: red;
     margin-top: 10px;
 }
+
+.logo-container{
+    width: 100%;
+    position: relative;
+    margin-bottom: 2em;
+}
+
+.logo {
+    height: 40vmin;
+    display: block;
+    margin: 0 auto;
+}

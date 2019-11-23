@@ -1,4 +1,5 @@
 export const DEFAULT_HANDLER = alert;
+const NOOP = () => undefined;
 
 export const get = (href, handler = DEFAULT_HANDLER) => {
     const token = localStorage.getItem('token');
@@ -38,12 +39,16 @@ export const post = (href, body, handler = DEFAULT_HANDLER) => {
         .catch(handler);
 }
 
-export const login = (username, password) => post('/userapi/auth/', {
-    username,
-    password
-}).then(res => {
-    localStorage.setItem('token', res.token);
-    return res;
-});
-
-export const profile = () => get('/userapi/');
+export function login(username, password) {
+    return post('/userapi/auth/', {
+        username,
+        password,
+        ...Array.from(arguments).slice(2)
+    }).then(res => {
+        localStorage.setItem('token', res.token);
+        return res;
+    })
+};
+export function profile(){
+    return get('/userapi', ...arguments)
+}
