@@ -58,6 +58,10 @@ class LoginPage extends Component {
 
     }
 
+    handleSignUp (e) {
+        window.location.href = "/signup";
+    }
+
     render () {
         return (
             <div className="login">
@@ -77,6 +81,9 @@ class LoginPage extends Component {
                         Submit
                     </Button>
                 </Form>
+                <Button variant="primary" type="submit" block onClick={this.handleSignUp}>
+                        Sign Up
+                </Button>
             </div>
         );
     }

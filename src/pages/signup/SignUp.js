@@ -45,13 +45,6 @@ class SignUp extends Component {
         console.log(this.username);
     }
 
-    handleUsername (e) {
-        e.preventDefault();
-        this.setState({ username: e.target.value });
-        this.username = e.target.value;
-        console.log(this.username);
-    }
-
     handlePassword (e) {
         e.preventDefault();
         this.setState({ password: e.target.value });
@@ -61,7 +54,7 @@ class SignUp extends Component {
 
     handleClick (e) {
         e.preventDefault();
-
+        window.location.href = "/";
     }
 
     render () {

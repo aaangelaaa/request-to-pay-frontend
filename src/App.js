@@ -5,6 +5,7 @@ import { Form, Button } from 'react-bootstrap'
 import './App.css';
 import Routing from './helpers/Routing.js';
 import LoginPage from './pages/login/LoginPage.js';
+import SignUp from './pages/signup/SignUp.js';
 import DriverDash from './pages/driver dashboard/DriverDash.js';
 import DriverActiveInvoices from './pages/driver active invoices/DriverActiveInvoices.js';
 import DriverPastInvoices from './pages/driver past invoices/DriverPastInvoices.js';
