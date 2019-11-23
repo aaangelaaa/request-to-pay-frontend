@@ -6,6 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import LoginPage from '../pages/login/LoginPage.js';
+import SignUp from '../pages/signup/SignUp.js';
 import DriverDash from '../pages/driver dashboard/DriverDash.js';
 import DriverActiveInvoices from '../pages/driver active invoices/DriverActiveInvoices.js';
 import DriverPastInvoices from '../pages/driver past invoices/DriverPastInvoices.js';
@@ -32,6 +33,7 @@ export default function Routing() {
   return (
     <Router>
         <Switch>
+<<<<<<< HEAD
           <Route exact path="/" component={LoginPage}/>
           <Route exact path="/driverdash" component={DriverDash}/>
           <Route exact path="/driveractiveinvoices" component={DriverActiveInvoices} />
@@ -45,6 +47,50 @@ export default function Routing() {
           <Route exact path="/companyactiveinvoices" component={CompanyActiveInvoices} />
           <Route exact path="/companypastinvoices" component={CompanyPastInvoices} />
           <Route exact path="/createinvoice" component={CreateInvoice} />
+=======
+          <Route exact path="/">
+            <LoginPage />
+          </Route>
+          <Route path="/signup">
+            <SignUp />
+          </Route>
+          <Route path="/driverdash">
+            <DriverDash />
+          </Route>
+          <Route path="/driveractiveinvoices">
+            <DriverActiveInvoices />
+          </Route>
+          <Route path="/driverpastinvoices">
+            <DriverPastInvoices />
+          </Route>
+          <Route path="/invoice">
+            <Invoice />
+          </Route>
+          <Route path="/sbodash">
+            <SBODash />
+          </Route>
+          <Route path="/sboactiveinvoices">
+            <SBOActiveInvoices />
+          </Route>
+          <Route path="/sbopastinvoices">
+            <SBOPastInvoices />
+          </Route>
+          <Route path="/interacconf">
+            <InteracConfirmation />
+          </Route>
+          <Route path="/companydash">
+            <CompanyDash />
+          </Route>
+          <Route path="/companyactiveinvoices">
+            <CompanyActiveInvoices />
+          </Route>
+          <Route path="/companypastinvoices">
+            <CompanyPastInvoices />
+          </Route>
+          <Route path="/createinvoice">
+            <CreateInvoice />
+          </Route>
+>>>>>>> e0e77f8e0bd0a0fdfb4a4cf3b1b6712c6048712b
         </Switch>
     </Router>
   );
