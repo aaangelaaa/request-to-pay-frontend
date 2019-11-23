@@ -44,7 +44,7 @@ class CompanyDash extends Component {
                 <h3 className="company-header">Company Dashboard</h3>
                 <Button variant="primary" size="lg" block onClick={this.handleClick1}>View Active Invoices</Button>
                 <Button variant="secondary" size="lg" block onClick={this.handleClick2}>View Past Invoices</Button>
-                <Button variant="primary" size="lg" block onClick={this.handleClick3}>Create New Invoice</Button>
+                {/* <Button variant="primary" size="lg" block onClick={this.handleClick3}>Create New Invoice</Button> */}
                 <Button variant="primary" size="sm" onClick={this.handleLogout}>Logout</Button>
             </div>
         );
