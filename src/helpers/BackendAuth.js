@@ -1,12 +1,21 @@
+import Cookies from 'universal-cookie';
 export const DEFAULT_HANDLER = alert;
 export const NOOP = () => undefined;
 
+const cookies = new Cookies();
+
 export const get = (href, handler = DEFAULT_HANDLER) => {
     const token = localStorage.getItem('token');
+    const csrf = cookies.get('csrftoken')
     let headers = {};
     if (token) {
         headers['Authorization'] = "Token " + token;
     }
+
+    if (csrf){
+        headers['X-CSRFToken'] = csrf;
+    }
+
     return fetch(
             href, {
                 headers
@@ -22,13 +31,24 @@ export const get = (href, handler = DEFAULT_HANDLER) => {
 }
 
 export const post = (href, body, handler = DEFAULT_HANDLER) => {
+    let headers = {
+        "Content-Type": "application/json"
+    };
+
+    const csrf = cookies.get('csrftoken');
+
+    console.log(csrf);
+    
+
+    if (csrf){
+        headers['X-CSRFToken'] = csrf;
+    }
+
     return fetch(
             href, {
                 method: 'POST',
                 body: JSON.stringify(body),
-                headers: {
-                    "Content-Type": "application/json"
-                },
+                headers
             }
         ).then(res => {
             if (res.ok) {
