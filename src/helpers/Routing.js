@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import LoginPage from '../pages/login/LoginPage.js';
 import SignUp from '../pages/signup/SignUp.js';
+import SBOAddress from '../pages/signup/SBOAddress.js';
 import DriverDash from '../pages/driver dashboard/DriverDash.js';
 import DriverActiveInvoices from '../pages/driver active invoices/DriverActiveInvoices.js';
 import DriverPastInvoices from '../pages/driver past invoices/DriverPastInvoices.js';
@@ -34,6 +35,8 @@ export default function Routing() {
     <Router>
         <Switch>
           <Route exact path="/" component={LoginPage}/>
+          <Route exact path="/signup" component={SignUp}/>
+          <Route exact path="/address" component={SBOAddress}/>
           <Route exact path="/driverdash" component={DriverDash}/>
           <Route exact path="/driveractiveinvoices" component={DriverActiveInvoices} />
           <Route exact path="/driverpastinvoices" component={DriverPastInvoices} />

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { DropdownButton, Dropdown, Form, Button } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import BackendAuth from '../../helpers/BackendAuth.js'
 import './SignUp.css';
 
@@ -21,6 +21,7 @@ class SignUp extends Component {
         this.handleLastName = this.handleLastName.bind(this);
         this.handleUsername = this.handleUsername.bind(this);
         this.handlePassword = this.handlePassword.bind(this);
+        this.handleUserType = this.handleUserType.bind(this);
         this.handleClick = this.handleClick.bind(this);
     }
 
@@ -45,6 +46,13 @@ class SignUp extends Component {
         console.log(this.username);
     }
 
+    handleUserType (e) {
+        e.preventDefault();
+        this.setState({ userType: e.target.value });
+        this.userType = e.target.value;
+        console.log(this.userType);
+    }
+
     handlePassword (e) {
         e.preventDefault();
         this.setState({ password: e.target.value });
@@ -54,7 +62,11 @@ class SignUp extends Component {
 
     handleClick (e) {
         e.preventDefault();
-        window.location.href = "/";
+        if (this.userType=="Business Owner") {
+            window.location.href = "/address";
+        } else {
+            window.location.href = "/";
+        }   
     }
 
     render () {
@@ -82,11 +94,12 @@ class SignUp extends Component {
                         <Form.Control size="sm" type="password" placeholder="secure123" onChange={this.handlePassword}/>
                     </Form.Group>
 
-                    <DropdownButton id="dropdown-user" title="User Type">
-                      <Dropdown.Item href="#/action-1">Truck Driver</Dropdown.Item>
-                      <Dropdown.Item href="#/action-2">Business Owner</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">Supplier Company</Dropdown.Item>
-                    </DropdownButton>
+                    <Form.Control as="select" onChange={this.handleUserType}>
+                        <option>Choose...</option>
+                        <option>Truck Driver</option>
+                        <option>Supplier Company</option>
+                        <option>Business Owner</option>
+                    </Form.Control>
                     
                     <Button variant="primary" type="submit">
                         Submit
