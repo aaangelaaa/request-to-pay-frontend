@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Button } from "react-bootstrap";
 import logo from "../../images/Scotiabank logo.png";
@@ -60,40 +60,46 @@ class LoginPage extends Component {
     return (
       <GlobalState.Consumer>
         {({ update }) => (
+          <Fragment>
+          <div id="wave-container">
+            <div id="wave">
+            </div>
+          </div>
           <div className="login">
-            <h3 className="login-header">Login</h3>
             <div className="logo-container">
               <img className="logo" src={logo} alt=""/>
             </div>
-            <Form>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control
-                  type="email"
-                  value={this.state.username}
-                  placeholder="Enter email"
-                  onChange={this.handleUsername}
-                />
-              </Form.Group>
+            <h3 className="login-header">Login</h3>
+            <div className="form-container">
+              <Form>
+                <Form.Group controlId="formBasicEmail">
+                  <Form.Control
+                    type="email"
+                    value={this.state.username}
+                    placeholder="Enter email"
+                    onChange={this.handleUsername}
+                  />
+                </Form.Group>
 
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  value={this.state.password}
-                  placeholder="Password"
-                  onChange={this.handlePassword}
-                />
-              </Form.Group>
-
-              <Button variant="primary"
-                onClick={this.handleClick.bind(this, update)}
-              >
-                Submit
-              </Button>
-              {this.state.error && <p>Something went wrong logging in. Please try again.</p>}
-            </Form>
+                <Form.Group controlId="formBasicPassword">
+                  <Form.Control
+                    type="password"
+                    value={this.state.password}
+                    placeholder="Password"
+                    onChange={this.handlePassword}
+                  />
+                </Form.Group>
+                
+                <Button variant="dark" block
+                  onClick={this.handleClick.bind(this, update)}
+                >
+                  Submit
+                </Button>
+                {this.state.error && <p>Something went wrong logging in. Please try again.</p>}
+              </Form>
+            </div>
           </div>
+          </Fragment>
         )}
       </GlobalState.Consumer>
     );
