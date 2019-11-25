@@ -3,6 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Routing from "./helpers/Routing.js";
 
+import LoginPage from "./pages/login/LoginPage";
+
 import * as auth from "./helpers/BackendAuth";
 
 const GlobalState = React.createContext();
@@ -20,9 +22,14 @@ class App extends React.Component {
   }
 
   onStorageChange() {
+    const {loggedIn} = this.state;
     this.setState({
       loggedIn: !!localStorage.getItem("token")
     });
+
+    if (!loggedIn && this.state.loggedIn){
+      this._loadUser();
+    }
   }
 
   onStorageAdd() {
@@ -35,12 +42,18 @@ class App extends React.Component {
     // any other business goes here
   }
 
+  _loadUser() {
+    this.setState({ loading: true }, () =>
+      auth
+        .profile()
+        .then(user => this.setState({ user, loggedIn: true, loading: false }))
+    );
+  }
+
   componentDidMount() {
     const token = localStorage.getItem("token");
     if (token) {
-      this.setState({ loading: true }, () =>
-        auth.profile().then(user => this.setState({ user, loggedIn: true, loading: false }))
-      );
+      this._loadUser();
     } else {
       this.setState({ loading: false });
     }
@@ -64,7 +77,7 @@ class App extends React.Component {
           update: this.setState.bind(this)
         }}
       >
-        <Routing />
+        {this.state.loggedIn ? <Routing /> : <LoginPage />}
       </GlobalState.Provider>
     );
   }

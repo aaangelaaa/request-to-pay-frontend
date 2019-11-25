@@ -31,10 +31,10 @@ class DriverDash extends Component {
     this.props.history.push("/driverpastinvoices");
   }
 
-  handleLogout(e) {
-    e.preventDefault();
+  handleLogout(update) {
     // switcc pages
     console.log("logging out!");
+    auth.logout().then(() => update({ loggedIn: false, user: null }));
   }
 
   render() {
@@ -42,24 +42,42 @@ class DriverDash extends Component {
       <div className="driver-dash">
         <h3 className="driver-header">Driver Dashboard</h3>
         <GlobalState.Consumer>
-          {({ state, loading }) => loading || !state.user ? (
+          {({ state, loading, update }) =>
+            loading || !state.user ? (
               <p>loading</p>
             ) : (
-              <h3>
-                Hello, {state.user.first_name} {state.user.last_name}!
-              </h3>
+              <React.Fragment>
+                <h3>
+                  Hello, {state.user.first_name} {state.user.last_name}!
+                </h3>
+
+                <Button
+                  variant="primary"
+                  size="lg"
+                  block
+                  onClick={this.handleClick1.bind(this)}
+                >
+                  View Active Invoices
+                </Button>
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  block
+                  onClick={this.handleClick2.bind(this)}
+                >
+                  View Past Invoices
+                </Button>
+                <Button
+                  variant="primary"
+                  size="sm"
+                  onClick={this.handleLogout.bind(this, update)}
+                >
+                  Logout
+                </Button>
+              </React.Fragment>
             )
           }
         </GlobalState.Consumer>
-        <Button variant="primary" size="lg" block onClick={this.handleClick1.bind(this)}>
-          View Active Invoices
-        </Button>
-        <Button variant="secondary" size="lg" block onClick={this.handleClick2.bind(this)}>
-          View Past Invoices
-        </Button>
-        <Button variant="primary" size="sm" onClick={this.handleLogout.bind(this)}>
-          Logout
-        </Button>
       </div>
     );
   }

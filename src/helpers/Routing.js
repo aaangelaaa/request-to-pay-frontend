@@ -33,7 +33,7 @@ export default function Routing() {
   return (
     <Router>
         <Switch>
-          <Route exact path="/" component={LoginPage}/>
+          <Route exact path="/" component={DriverDash}/>
           <Route exact path="/driverdash" component={DriverDash}/>
           <Route exact path="/driveractiveinvoices" component={DriverActiveInvoices} />
           <Route exact path="/driverpastinvoices" component={DriverPastInvoices} />
