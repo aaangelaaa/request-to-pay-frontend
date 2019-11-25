@@ -40,8 +40,8 @@ class DriverPastInvoices extends Component {
             <h6>Invoice# Date</h6>
             <div className="list-invoices">
               <Accordion>
-                <DataProvider href={`/api/invoices/?driver=${state.id}&status=D`}>
-                  {({ data }) =>
+                <DataProvider href={`/api/invoices/?driver=${state.user.id}&status=D`}>
+                  {({ data = [] }) =>
                     data.map(invoice => (
                       <InvoiceAccordionItem
                         invoice={invoice}

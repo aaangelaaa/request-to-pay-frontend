@@ -52,7 +52,7 @@ class LoginPage extends Component {
     auth.login(username, password, () => alert('yeet'))
     .then(auth.profile)
     .then(data => {update({...data}); return data;})
-    .then(({user_type}) => {
+    .then(({user: {user_type}}) => {
         if (user_type === 'D'){
             history.push('/driverdash');
         } else if (user_type === 'S'){

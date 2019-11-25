@@ -1,8 +1,22 @@
 import Cookies from 'universal-cookie';
 export const DEFAULT_HANDLER = alert;
+export const EVT_SET_ITEM = new Event('set-item');
+export const EVT_REMOVE_ITEM = new Event('remove-item');
+
 export const NOOP = () => undefined;
 
+const setItem = (key, val) => {
+    localStorage.setItem(key, val);
+    dispatchEvent(EVT_SET_ITEM);
+}
+
+const removeItem = (key) => {
+    localStorage.removeItem(key);
+    dispatchEvent(EVT_REMOVE_ITEM);
+}
+
 const cookies = new Cookies();
+
 
 export const get = (href, handler = DEFAULT_HANDLER) => {
     const token = localStorage.getItem('token');
@@ -12,7 +26,7 @@ export const get = (href, handler = DEFAULT_HANDLER) => {
         headers['Authorization'] = "Token " + token;
     }
 
-    if (csrf){
+    if (csrf) {
         headers['X-CSRFToken'] = csrf;
     }
 
@@ -24,7 +38,7 @@ export const get = (href, handler = DEFAULT_HANDLER) => {
             if (res.ok) {
                 return res.json();
             }
-            throw new Error("something went wrong trying to GET " + href);
+            throw new Error(res.status + " – something went wrong trying to GET " + href);
         })
         .catch(handler);
 
@@ -37,10 +51,8 @@ export const post = (href, body, handler = DEFAULT_HANDLER) => {
 
     const csrf = cookies.get('csrftoken');
 
-    console.log(csrf);
-    
 
-    if (csrf){
+    if (csrf) {
         headers['X-CSRFToken'] = csrf;
     }
 
@@ -54,21 +66,36 @@ export const post = (href, body, handler = DEFAULT_HANDLER) => {
             if (res.ok) {
                 return res.json();
             }
-            throw new Error("something went wrong trying to POST to " + href);
+            throw new Error(res.status + " – something went wrong trying to POST to " + href);
         })
         .catch(handler);
 }
 
-export function login(username, password) {
-    return post('/userapi/auth/', {
-        username,
+export function login(login, password) {
+    return post('/accounts/login/', {
+        login,
         password,
         ...Array.from(arguments).slice(2)
     }).then(res => {
-        localStorage.setItem('token', res.token);
+        setItem('token', res.token);
         return res;
     })
 };
-export function profile(){
-    return get('/userapi/', ...arguments)
+
+export function profile() {
+    return get('/accounts/profile/', err => {
+        console.log(err);
+        if (err.message.startsWith('401')) {
+            removeItem('token');
+            console.error('fetching user failed. Token removed.')
+        }
+    })
+}
+
+export function logout() {
+    return post('/accounts/logout/', {
+        revoke_token: true
+    }).then(() => {
+        removeItem('token');
+    })
 }

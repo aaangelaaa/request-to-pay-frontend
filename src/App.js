@@ -10,22 +10,48 @@ const DEBUG = true;
 
 class App extends React.Component {
   constructor(props) {
+    const loggedIn = !!localStorage.getItem("token");
     super(props);
     this.state = {
-      user: undefined,
-      loading: !!localStorage.getItem("token")
+      user: null,
+      loggedIn,
+      loading: loggedIn
     };
+  }
+
+  onStorageChange() {
+    this.setState({
+      loggedIn: !!localStorage.getItem("token")
+    });
+  }
+
+  onStorageAdd() {
+    this.onStorageChange();
+    // any other business goes here
+  }
+
+  onStorageRemove() {
+    this.onStorageChange();
+    // any other business goes here
   }
 
   componentDidMount() {
     const token = localStorage.getItem("token");
     if (token) {
       this.setState({ loading: true }, () =>
-        auth.profile().then(data => this.setState({ ...data, loading: false }))
+        auth.profile().then(user => this.setState({ user, loggedIn: true, loading: false }))
       );
     } else {
       this.setState({ loading: false });
     }
+
+    window.addEventListener("set-item", this.onStorageAdd.bind(this));
+    window.addEventListener("remove-item", this.onStorageRemove.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("set-item", this.onStorageAdd.bind(this));
+    window.removeEventListener("remove-item", this.onStorageRemove.bind(this));
   }
 
   render() {

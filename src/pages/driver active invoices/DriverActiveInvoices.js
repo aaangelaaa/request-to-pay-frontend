@@ -44,8 +44,8 @@ class DriverActiveInvoices extends Component {
               <h6>Invoice# Date</h6>
               <div className="list-invoices">
                 <Accordion>
-                  <DataProvider href={`/api/invoices/?driver=${state.id}&status=A`}>
-                    {({ data }) =>
+                  <DataProvider href={`/api/invoices/?driver=${state.user.id}&status=A`}>
+                    {({ data = [] }) =>
                       <React.Fragment>
                         {data.map((invoice, i) => (
                           <InvoiceAccordionItem
