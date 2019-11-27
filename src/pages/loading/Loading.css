@@ -27,16 +27,15 @@
     left: 26%;
 }
 
-.signup {
+.loading {
     position: relative;
     height: 100%;
     padding: 10%;
-    top: 7vh;
 }
 
-.signup-title {
+.loading-title {
     position: relative;
-    top: 10vh;
+    top: 40vh;
     height: auto;
     padding: 10%;
 
@@ -47,10 +46,4 @@
     font-size: 30px;   
 
     color: #EC111A;
-}
-
-.submit-button {
-    position: absolute;
-    top: 65vh;
-    left: 38vw;
 }
