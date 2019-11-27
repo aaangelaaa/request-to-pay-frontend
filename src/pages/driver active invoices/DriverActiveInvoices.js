@@ -90,6 +90,7 @@ class DriverActiveInvoices extends Component {
                 <Accordion>
                   {data.map((data, i) => (
                     <InvoiceAccordionItem
+                      key={i}
                       invoice={data}
                       handleView={this.handleViewInvoice(data.id).bind(this)}
                       handlePay={this.handlePayInvoice(data.id).bind(this)}
