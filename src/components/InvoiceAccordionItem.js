@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Accordion, Button } from "react-bootstrap";
 
-const InvoiceAccordionItem = ({ invoice, handleView, handlePay, i }) => {
+const InvoiceAccordionItem = ({ invoice, handleView, handlePay, isDriver, i }) => {
   const statusLabel = invoice.status === "D" ? "DELIVERED" : "UNDELIVERED";
   const statusVerbose = {
     "P": "Paid, not delivered",
@@ -21,14 +21,14 @@ const InvoiceAccordionItem = ({ invoice, handleView, handlePay, i }) => {
         <Button variant="outline-danger" size="sm" onClick={handleView}>
           View Invoice
         </Button>
-        <Button
+        {isDriver && (<Button
           className="set-delivered"
           variant="outline-danger"
           size="sm"
           onClick={handlePay}
         >
           Set Delivered
-        </Button>
+        </Button>)}
       </Card.Body>
     </Accordion.Collapse>
   </Card>

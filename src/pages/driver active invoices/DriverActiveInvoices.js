@@ -92,6 +92,7 @@ class DriverActiveInvoices extends Component {
                     <InvoiceAccordionItem
                       key={i}
                       invoice={data}
+                      isDriver={user.user_type === "D"}
                       handleView={this.handleViewInvoice(data.id).bind(this)}
                       handlePay={this.handlePayInvoice(data.id).bind(this)}
                       i={i}
