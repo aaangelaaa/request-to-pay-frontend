@@ -19,6 +19,7 @@ import CompanyDash from '../pages/company dashboard/CompanyDash.js';
 import CompanyActiveInvoices from '../pages/company active invoices/CompanyActiveInvoices.js';
 import CompanyPastInvoices from '../pages/company past invoices/CompanyPastInvoices.js';
 import CreateInvoice from '../pages/company create invoice/CreateInvoice.js';
+import Loading from '../pages/loading/Loading.js';
 
 // This site has 3 pages, all of which are rendered
 // dynamically in the browser (not server rendered).
@@ -34,6 +35,7 @@ export default function Routing() {
     <Router>
         <Switch>
           <Route exact path="/" component={LoginPage}/>
+          <Route exact path="/signup" component={SignUp}/>
           <Route exact path="/driverdash" component={DriverDash}/>
           <Route exact path="/driveractiveinvoices" component={DriverActiveInvoices} />
           <Route exact path="/driverpastinvoices" component={DriverPastInvoices} />
@@ -46,6 +48,7 @@ export default function Routing() {
           <Route exact path="/companyactiveinvoices" component={CompanyActiveInvoices} />
           <Route exact path="/companypastinvoices" component={CompanyPastInvoices} />
           <Route exact path="/createinvoice" component={CreateInvoice} />
+          <Route exact path="/loading" component={Loading} />
         </Switch>
     </Router>
   );
