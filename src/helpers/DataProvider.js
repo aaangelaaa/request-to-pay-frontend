@@ -44,3 +44,9 @@ export default class DataProvider extends React.Component {
     return loaded ? children({ data, error }) : placeholder;
   }
 }
+
+export const withData = href => ({children, ...props}) => (
+  <DataProvider href={href}>
+      {data => children({data, ...props})}
+  </DataProvider>
+)

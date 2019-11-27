@@ -5,6 +5,7 @@ import * as auth from "../../helpers/BackendAuth.js";
 import { GlobalState } from "../../App";
 import "./DriverDash.css";
 import logo from "../../images/Scotiabank_White.png";
+import withGlobalState from "../../helpers/withGlobalState.js";
 
 {
   /* Dashboard */
@@ -32,92 +33,68 @@ class DriverDash extends Component {
     this.props.history.push("/driverpastinvoices");
   }
 
-  handleLogout(update) {
-    // switcc pages
+  handleLogout() {
+    // switch pages
+    const {update} = this.props.context;
     console.log("logging out!");
-    // auth.logout().then(() => update({ loggedIn: false, user: null }));
+    auth.logout().then(() => update({ loggedIn: false, user: null }));
   }
 
   render() {
+    const {state: {user}} = this.props.context;
     return (
       <Fragment>
-      <div id="rectangle">
-      </div>
-      <div className="header-container">
-        <img className="header-logo" src={logo} alt=""/>
-      </div>
-      <div className="dashboard">
-      <h3 className="dash-title">Dashboard</h3>
-      {/* <GlobalState.Consumer>
-          {({ state, loading }) => loading && state.user ? (
-              <p>loading</p>
-            ) : (
-              <React.Fragment>
-                <h3>
-                  Hello, {state.user.first_name} {state.user.last_name}!
-                </h3>
-
-                <Button
-                  variant="primary"
-                  size="lg"
-                  block
-                  onClick={this.handleClick1.bind(this)}
-                >
-                  View Active Invoices
-                </Button>
-                <Button
-                  variant="secondary"
-                  size="lg"
-                  block
-                  onClick={this.handleClick2.bind(this)}
-                >
-                  View Past Invoices
-                </Button>
-                <Button
-                  variant="primary"
-                  size="sm"
-                  onClick={this.handleLogout.bind(this, update)}
-                >
-                  Logout
-                </Button>
-              </React.Fragment>
-            )
-          }
-      </GlobalState.Consumer> */}
-        <div className="dash-active-invoices">
-          <Button 
-            variant="danger" 
-            size="lg" 
-            block
-            style={{backgroundColor: "#EC111A", alignItems: 'center', 
-                      justifyContent: 'center', borderRadius: 30}}
-            onClick={this.handleClick1.bind(this)}>
-            View Active Invoices
-          </Button>
+        <div id="rectangle"></div>
+        <div className="header-container">
+          <img className="header-logo" src={logo} alt="" />
         </div>
-        <div className="dash-past-invoices">
-          <Button 
-            variant="danger" 
-            size="lg" 
-            block 
-            style={{backgroundColor: "#EC111A", alignItems: 'center', 
-                    justifyContent: 'center', borderRadius: 30}}
-            onClick={this.handleClick2.bind(this)}>
-            View Past Invoices
-          </Button>
-        </div>
-        <div className="log-out-button">
-          <Button 
-            variant="outline-danger" 
-            size="lg"
-            onClick={this.handleLogout.bind(this)}>
-            Logout
-          </Button>
-        </div>
+        <div className="dashboard">
+          <h3 className="dash-title">Dashboard</h3>
+          <div className="dash-active-invoices">
+            <Button
+              variant="danger"
+              size="lg"
+              block
+              style={{
+                backgroundColor: "#EC111A",
+                alignItems: "center",
+                justifyContent: "center",
+                borderRadius: 30
+              }}
+              onClick={this.handleClick1.bind(this)}
+            >
+              View Active Invoices
+            </Button>
+          </div>
+          <div className="dash-past-invoices">
+            <Button
+              variant="danger"
+              size="lg"
+              block
+              style={{
+                backgroundColor: "#EC111A",
+                alignItems: "center",
+                justifyContent: "center",
+                borderRadius: 30
+              }}
+              onClick={this.handleClick2.bind(this)}
+            >
+              View Past Invoices
+            </Button>
+          </div>
+          <div className="log-out-button">
+            <Button
+              variant="outline-danger"
+              size="lg"
+              onClick={this.handleLogout.bind(this)}
+            >
+              Logout
+            </Button>
+          </div>
         </div>
       </Fragment>
     );
   }
 }
 
-export default DriverDash;
+export default withGlobalState(DriverDash);
