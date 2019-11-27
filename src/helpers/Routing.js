@@ -39,6 +39,7 @@ const Routing = ({ context: { state } }) => {
           <Route exact path="/" component={Dashboard} />
           <Route path="/invoices" component={DriverActiveInvoices}/>
           <Route exact path="/invoice/:id" component={Invoice} />
+          <Route exact path="/createinvoice" component={CreateInvoice} />
           {/* <Route exact path="/driverdash" component={DriverDash} /> */}
           {/* <Route
           exact

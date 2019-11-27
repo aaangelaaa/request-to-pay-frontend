@@ -57,7 +57,7 @@ class DriverDash extends Component {
               size="lg"
               block
               style={{
-                backgroundColor: "#EC111A",
+                backgroundColor: "var(--company-color)",
                 alignItems: "center",
                 justifyContent: "center",
                 borderRadius: 30
@@ -73,7 +73,7 @@ class DriverDash extends Component {
               size="lg"
               block
               style={{
-                backgroundColor: "#EC111A",
+                backgroundColor: "var(--company-color)",
                 alignItems: "center",
                 justifyContent: "center",
                 borderRadius: 30

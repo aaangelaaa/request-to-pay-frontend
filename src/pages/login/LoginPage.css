@@ -5,7 +5,7 @@
     top: 130vw;
     width: 100%;
     height: 100%;
-    background: #EC111A;
+    background: var(--company-color);
     z-index: 700;
 }
 
@@ -13,7 +13,7 @@
     position: relative;
     height: 100%;
     padding: 10%;
-    background-color: #EC111A;
+    background-color: var(--company-color);
 }
 
 .login-header {
@@ -61,7 +61,7 @@
   width: 100%;
   height: 30vh;
   overflow: hidden;
-  background-color: #EC111A;
+  background-color: var(--company-color);
 }
 
 #wave {
@@ -78,7 +78,7 @@
   border-radius: 100%;
   width: 100%;
   height: 300px;
-  background-color: #EC111A;
+  background-color: var(--company-color);
   right: -25%;
   top: 180px
 }
