@@ -5,6 +5,8 @@ import DataProvider from "../../helpers/DataProvider";
 import "./Invoice.css";
 import logo from "../../images/Scotiabank_White.png";
 
+import moment from 'moment';
+
 {
   /* Invoice */
 }
@@ -54,11 +56,9 @@ class Invoice extends Component {
               <p style={{ fontSize: "10px" }}>
                 <strong>Bill To</strong>
                 <br></br>
-                Jane Doe
+                {data.customer.first_name} {data.customer.last_name}
                 <br></br>
-                1234 Road Rd.
-                <br></br>
-                City, PR 1A2 B3C
+                {data.customer.address}
               </p>
               <p className="invoice-titles">
                 <strong>Invoice #: </strong>
@@ -68,7 +68,7 @@ class Invoice extends Component {
               <p className="invoice-data" id="invoice-data">
                 {data.id}
                 <br></br>
-                TODO
+                {moment().format("YYYY-MM-DD")}
               </p>
               <Table striped bordered hover style={{ fontSize: "10px" }}>
                 <thead>
