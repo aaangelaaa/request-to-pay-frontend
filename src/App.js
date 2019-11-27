@@ -83,5 +83,7 @@ class App extends React.Component {
   }
 }
 
+const withGlobalState = ({children}) => <GlobalState.Consumer>{value => children(...value)}</GlobalState.Consumer>
+
 export default App;
-export { GlobalState, DEBUG };
+export { GlobalState, DEBUG, withGlobalState };

@@ -1,7 +1,8 @@
-import React, {Component} from 'react';
+import React, {Fragment, Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button, Table} from 'react-bootstrap';
 import './Invoice.css';
+import logo from "../../images/Scotiabank_White.png";
 
 {/* Invoice */}
 
@@ -23,6 +24,12 @@ class Invoice extends Component {
 
     render () {
         return (
+          <Fragment>
+            <div id="rectangle">
+            </div>
+            <div className="header-container">
+              <img className="header-logo" src={logo} alt=""/>
+            </div>
             <div className="invoice">
                 <p>The Coca Cola Company</p>
                 <p className="invoice-header2">INVOICE</p>
@@ -88,8 +95,16 @@ class Invoice extends Component {
                     </tr>
                   </tbody>
                 </Table>
-                <Button variant="secondary" size="sm" onClick={this.handleBack}>Back</Button>
+                <div className="back">
+                  <Button 
+                    variant="outline-secondary" 
+                    size="lg" 
+                    onClick={this.handleBack}>
+                    Back
+                    </Button>
+                </div>
             </div>
+          </Fragment>
         );
     }
 }

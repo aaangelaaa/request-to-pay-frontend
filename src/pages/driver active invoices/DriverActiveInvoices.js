@@ -1,12 +1,13 @@
-import React, {Component} from 'react';
+import React, {Fragment, Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Accordion, Card, Button, Form} from 'react-bootstrap';
 import InvoiceAccordionItem from '../../components/InvoiceAccordionItem';
 import {GlobalState} from '../../App';
 import DataProvider from '../../helpers/DataProvider';
 import './DriverActiveInvoices.css';
+import logo from "../../images/Scotiabank_White.png";
 
-{/* Driver's Active Invoices*/}
+{/* Active Invoices */}
 
 
 class DriverActiveInvoices extends Component {
@@ -37,34 +38,61 @@ class DriverActiveInvoices extends Component {
 
     render () {
         return (
-          <GlobalState.Consumer>
-          {({ state }) => state.user && (
-            <div className="driver-pg">
-              <h3 className="driver-header">View Active Invoices</h3>
-              <h6>Invoice# Date</h6>
-              <div className="list-invoices">
-                <Accordion>
-                  <DataProvider href={`/api/invoices/?driver=${state.user.id}&status=A`}>
-                    {({ data = [] }) =>
-                      <React.Fragment>
-                        {data.map((invoice, i) => (
-                          <InvoiceAccordionItem
-                            i={i}
-                            invoice={invoice}
-                            onClick={this.handleClick2.bind(this)}
-                          />
-                        ))}
-                      </React.Fragment>
-                    }
-                  </DataProvider>
-                </Accordion>
-              </div>
-              <Button variant="secondary" size="sm" onClick={this.handleBack}>
-                Back
-              </Button>
+          <Fragment>
+            <div id="rectangle">
             </div>
-          )}
-        </GlobalState.Consumer>
+            <div className="header-container">
+              <img className="header-logo" src={logo} alt=""/>
+            </div>
+            <div className="active">
+                <h3 className="active-title">View Active Invoices</h3>
+                <div className="list-invoices">
+                  <h6>Invoice# Status</h6>
+                    <Accordion>
+                        <Card>
+                          <Accordion.Toggle as={Card.Header} variant="link" eventKey="0">
+                            XXXXX UNDELIVERED
+                          </Accordion.Toggle>
+                        <Accordion.Collapse eventKey="0">
+                          <Card.Body style={{wordSpacing:"1px"}}>
+                            <strong>Status:</strong> Paid, Not Delivered<br></br><br></br>
+                            <Button variant="outline-danger" size="sm" onClick={this.handleClick1}>
+                            View Invoice
+                            </Button>
+                            <Button className="set-delivered" variant="outline-danger" size="sm" onClick={this.handleClick2}>
+                            Set Delivered
+                            </Button>
+                          </Card.Body>
+                        </Accordion.Collapse>
+                      </Card>
+                      <Card>
+                          <Accordion.Toggle as={Card.Header} variant="link" eventKey="1">
+                            XXXXX UNDELIVERED
+                          </Accordion.Toggle>
+                        <Accordion.Collapse eventKey="1">
+                          <Card.Body style={{wordSpacing:"1px"}}>
+                            <strong>Status:</strong> Paid, Not Delivered<br></br><br></br>
+                            <Button variant="outline-danger" size="sm" onClick={this.handleClick1}>
+                            View Invoice
+                            </Button>
+                            <Button className="set-delivered" variant="outline-danger" size="sm" onClick={this.handleClick2}>
+                            Set Delivered
+                            </Button>
+                          </Card.Body>
+                        </Accordion.Collapse>
+                      </Card>
+                    </Accordion>
+                </div>
+                <div className="back-button">
+                  <Button 
+                    variant="outline-secondary" 
+                    size="lg" 
+                    onClick={this.handleBack}>
+                    Back
+                    </Button>
+                </div>
+            </div>
+          </Fragment>
         );
     }
 }

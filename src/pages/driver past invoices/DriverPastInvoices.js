@@ -1,16 +1,10 @@
-import React, { Component } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Accordion, Card, Button, Form } from "react-bootstrap";
-import { GlobalState } from "../../App";
-import DataProvider from "../../helpers/DataProvider";
-import InvoiceAccordionItem from '../../components/InvoiceAccordionItem';
+import React, {Fragment, Component} from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Accordion, Card, Button, Form} from 'react-bootstrap';
+import './DriverPastInvoices.css';
+import logo from "../../images/Scotiabank_White.png";
 
-import "./DriverPastInvoices.css";
-
-{
-  /* Driver's Past Invoices*/
-}
-
+{/* Past Invoices */}
 
 class DriverPastInvoices extends Component {
   constructor(props) {
@@ -31,35 +25,57 @@ class DriverPastInvoices extends Component {
     this.props.history.push("/driverdash");
   }
 
-  render() {
-    return (
-      <GlobalState.Consumer>
-        {({ state }) => state.user && (
-          <div className="driver-pg">
-            <h3 className="driver-header">View Past Invoices</h3>
-            <h6>Invoice# Date</h6>
-            <div className="list-invoices">
-              <Accordion>
-                <DataProvider href={`/api/invoices/?driver=${state.user.id}&status=D`}>
-                  {({ data = [] }) =>
-                    data.map(invoice => (
-                      <InvoiceAccordionItem
-                        invoice={invoice}
-                        onClick={this.handleClick.bind(this)}
-                      />
-                    ))
-                  }
-                </DataProvider>
-              </Accordion>
+    render () {
+        return (
+          <Fragment>
+            <div id="rectangle">
             </div>
-            <Button variant="secondary" size="sm" onClick={this.handleBack}>
-              Back
-            </Button>
-          </div>
-        )}
-      </GlobalState.Consumer>
-    );
-  }
+            <div className="header-container">
+              <img className="header-logo" src={logo} alt=""/>
+            </div>
+            <div className="past">
+                <h3 className="past-title">View Past Invoices</h3>
+                <div className="list-invoices">
+                  <h6>Invoice# Date</h6>
+                    <Accordion>
+                      <Card>
+                          <Accordion.Toggle as={Card.Header} variant="link" eventKey="0">
+                            XXXXX YYYY-MM-DD
+                          </Accordion.Toggle>
+                        <Accordion.Collapse eventKey="0">
+                          <Card.Body>
+                            <Button variant="outline-danger" size="sm" onClick={this.handleClick}>
+                            View Invoice
+                            </Button>
+                          </Card.Body>
+                        </Accordion.Collapse>
+                      </Card>
+                      <Card>
+                          <Accordion.Toggle as={Card.Header} variant="link" eventKey="1">
+                            XXXXX YYYY-MM-DD
+                          </Accordion.Toggle>
+                        <Accordion.Collapse eventKey="1">
+                          <Card.Body>
+                            <Button variant="outline-danger" size="sm" onClick={this.handleClick}>
+                            View Invoice
+                            </Button>
+                          </Card.Body>
+                        </Accordion.Collapse>
+                      </Card>
+                    </Accordion>
+                </div>
+                <div className="back-button">
+                  <Button 
+                    variant="outline-secondary" 
+                    size="lg" 
+                    onClick={this.handleBack}>
+                    Back
+                    </Button>
+                </div>
+            </div>
+            </Fragment>
+        );
+    }
 }
 
 export default DriverPastInvoices;
