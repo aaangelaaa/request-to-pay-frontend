@@ -3,7 +3,7 @@ import * as auth from './BackendAuth';
 
 export const GlobalState = React.createContext();
 
-export default class StateProvider extends React.Component {
+class StateProvider extends React.Component {
   constructor(props) {
     const loggedIn = !!localStorage.getItem("token");
     super(props);
@@ -16,7 +16,7 @@ export default class StateProvider extends React.Component {
 
   getUser(){
       auth.profile()
-      .then(user => this.setState({user}))
+      .then(user => this.setState({user, loading: false}))
   }
 
   componentDidMount(){
@@ -39,3 +39,5 @@ export default class StateProvider extends React.Component {
     );
   }
 }
+
+export default StateProvider;

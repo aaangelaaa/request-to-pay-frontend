@@ -27,39 +27,47 @@ import withGlobalState from "../helpers/withGlobalState";
 // work properly.
 
 const Routing = ({ context: { state } }) => {
-  return state.loggedIn && state.user ? (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Dashboard} />
-        {/* <Route exact path="/driverdash" component={DriverDash} /> */}
-        {/* <Route
-        exact
-        path="/driveractiveinvoices"
-        component={DriverActiveInvoices}
-      />
-      <Route exact path="/driverpastinvoices" component={DriverPastInvoices} />
-      <Route exact path="/invoice" component={Invoice} />
-      <Route exact path="/sbodash" component={SBODash} />
-      <Route exact path="/sboactiveinvoices" component={SBOActiveInvoices} />
-      <Route exact path="/sbopastinvoices" component={SBOPastInvoices} />
-      <Route exact path="/interacconf" component={InteracConfirmation} />
-      <Route exact path="/companydash" component={CompanyDash} />
-      <Route
-        exact
-        path="/companyactiveinvoices"
-        component={CompanyActiveInvoices}
-      />
-      <Route
-        exact
-        path="/companypastinvoices"
-        component={CompanyPastInvoices}
-      />
-      <Route exact path="/createinvoice" component={CreateInvoice} /> */}
-      </Switch>
-    </Router>
-  ) : (
-    <LoginPage />
-  );
+  if (state.loading){
+    return (
+      <p>Loading...</p>
+    );
+  } else if (state.loggedIn && state.user){
+    return (
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Dashboard} />
+          {/* <Route exact path="/driverdash" component={DriverDash} /> */}
+          {/* <Route
+          exact
+          path="/driveractiveinvoices"
+          component={DriverActiveInvoices}
+        />
+        <Route exact path="/driverpastinvoices" component={DriverPastInvoices} />
+        <Route exact path="/invoice" component={Invoice} />
+        <Route exact path="/sbodash" component={SBODash} />
+        <Route exact path="/sboactiveinvoices" component={SBOActiveInvoices} />
+        <Route exact path="/sbopastinvoices" component={SBOPastInvoices} />
+        <Route exact path="/interacconf" component={InteracConfirmation} />
+        <Route exact path="/companydash" component={CompanyDash} />
+        <Route
+          exact
+          path="/companyactiveinvoices"
+          component={CompanyActiveInvoices}
+        />
+        <Route
+          exact
+          path="/companypastinvoices"
+          component={CompanyPastInvoices}
+        />
+        <Route exact path="/createinvoice" component={CreateInvoice} /> */}
+        </Switch>
+      </Router>
+    )
+  } else {
+    return (
+      <LoginPage/>
+    )
+  }
 };
 
 export default withGlobalState(Routing);
