@@ -1,8 +1,9 @@
-import React, {Component} from 'react';
+import React, {Fragment, Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { DropdownButton, Dropdown, Form, Button } from 'react-bootstrap';
 import BackendAuth from '../../helpers/BackendAuth.js'
 import './SignUp.css';
+import logo from "../../images/Scotiabank_White.png";
 
 {/* Signup Page */}
 
@@ -59,8 +60,14 @@ class SignUp extends Component {
 
     render () {
         return (
+            <Fragment>
+            <div id="rectangle">
+            </div>
+            <div className="header-container">
+                <img className="header-logo" src={logo} alt=""/>
+            </div>
+            <h3 className="signup-title">Sign Up</h3>
             <div className="signup">
-                <h3 className="signup-header">Sign Up</h3>
                 <Form onSubmit={this.handleClick}>
                     <Form.Group controlId="formFirstName">
                         <Form.Label>First Name</Form.Label>
@@ -82,17 +89,23 @@ class SignUp extends Component {
                         <Form.Control size="sm" type="password" placeholder="secure123" onChange={this.handlePassword}/>
                     </Form.Group>
 
-                    <DropdownButton id="dropdown-user" title="User Type">
+                    <DropdownButton variant="danger" id="dropdown-user" title="User Type">
                       <Dropdown.Item href="#/action-1">Truck Driver</Dropdown.Item>
                       <Dropdown.Item href="#/action-2">Business Owner</Dropdown.Item>
                       <Dropdown.Item href="#/action-3">Supplier Company</Dropdown.Item>
                     </DropdownButton>
                     
-                    <Button variant="primary" type="submit">
+                    <div className="submit-button">
+                        <Button 
+                        variant="outline-danger" 
+                        size="lg" 
+                        onClick={this.handleClick}>
                         Submit
-                    </Button>
+                        </Button>
+                    </div>
                 </Form>
             </div>
+            </Fragment>
         );
     }
 }
