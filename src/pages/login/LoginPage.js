@@ -4,7 +4,7 @@ import { Form, Button } from "react-bootstrap";
 import logo from "../../images/Scotiabank logo.png";
 import * as auth from "../../helpers/BackendAuth.js";
 import LoginConfirmation from "../login confirmation/LoginConfirmation.js";
-import { GlobalState } from "../../App";
+//import { GlobalState } from "../../App";
 import "./LoginPage.css";
 
 {
@@ -40,7 +40,7 @@ class LoginPage extends Component {
     const { username, password } = this.state;
     const { history } = this.props;
     
-    auth.login(username, password, () => alert('yeet'))
+    /*auth.login(username, password, () => alert('yeet'))
     .then(auth.profile)
     .then(data => {update({...data}); return data;})
     .then(({user_type}) => {
@@ -53,17 +53,17 @@ class LoginPage extends Component {
         }
     })
     .catch(error => this.setState({error}));
-    
+    */
   }
 
   render() {
     return (
-      <GlobalState.Consumer>
-        {({ update }) => (
           <Fragment>
           <div id="wave-container">
             <div id="wave">
             </div>
+          </div>
+          <div id="rectangle">
           </div>
           <div className="login">
             <div className="logo-container">
@@ -91,7 +91,7 @@ class LoginPage extends Component {
                 </Form.Group>
                 
                 <Button variant="dark" block
-                  onClick={this.handleClick.bind(this, update)}
+                  //onClick={this.handleClick.bind(this, update)}
                 >
                   Submit
                 </Button>
@@ -100,8 +100,6 @@ class LoginPage extends Component {
             </div>
           </div>
           </Fragment>
-        )}
-      </GlobalState.Consumer>
     );
   }
 }
