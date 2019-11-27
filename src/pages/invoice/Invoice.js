@@ -2,6 +2,7 @@ import React, { Fragment, Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Table } from "react-bootstrap";
 import DataProvider from "../../helpers/DataProvider";
+import withGlobalState from "../../helpers/withGlobalState";
 import "./Invoice.css";
 import logo from "../../images/Scotiabank_White.png";
 
@@ -114,11 +115,15 @@ class Invoice extends Component {
                 </Button>
               </div>
             </div>
+            {(this.props.context.state.user.user_type === "C" && data.status==="A") && (
+              <div className="pay-me">You should probably pay for this invoice.</div>
+            )}
           </Fragment>
         )}
       </DataProvider>
+      
     );
   }
 }
 
-export default Invoice;
+export default withGlobalState(Invoice);
