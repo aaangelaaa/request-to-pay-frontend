@@ -1,9 +1,10 @@
-import React, {Component} from 'react';
+import React, {Fragment, Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Accordion, Card, Button, Form} from 'react-bootstrap';
 import './DriverPastInvoices.css';
+import logo from "../../images/Scotiabank_White.png";
 
-{/* Driver's Past Invoices*/}
+{/* Past Invoices */}
 
 class DriverPastInvoices extends Component {
     constructor(props) {
@@ -28,10 +29,16 @@ class DriverPastInvoices extends Component {
 
     render () {
         return (
-            <div className="driver-pg">
-                <h3 className="driver-header">View Past Invoices</h3>
-                <h6>Invoice# Date</h6>
+          <Fragment>
+            <div id="rectangle">
+            </div>
+            <div className="header-container">
+              <img className="header-logo" src={logo} alt=""/>
+            </div>
+            <div className="past">
+                <h3 className="past-title">View Past Invoices</h3>
                 <div className="list-invoices">
+                  <h6>Invoice# Date</h6>
                     <Accordion>
                       <Card>
                           <Accordion.Toggle as={Card.Header} variant="link" eventKey="0">
@@ -39,7 +46,7 @@ class DriverPastInvoices extends Component {
                           </Accordion.Toggle>
                         <Accordion.Collapse eventKey="0">
                           <Card.Body>
-                            <Button variant="outline-primary" size="sm" onClick={this.handleClick}>
+                            <Button variant="outline-danger" size="sm" onClick={this.handleClick}>
                             View Invoice
                             </Button>
                           </Card.Body>
@@ -51,43 +58,7 @@ class DriverPastInvoices extends Component {
                           </Accordion.Toggle>
                         <Accordion.Collapse eventKey="1">
                           <Card.Body>
-                            <Button variant="outline-primary" size="sm" onClick={this.handleClick}>
-                            View Invoice
-                            </Button>
-                          </Card.Body>
-                        </Accordion.Collapse>
-                      </Card>
-                      <Card>
-                          <Accordion.Toggle as={Card.Header} variant="link" eventKey="2">
-                            XXXXX YYYY-MM-DD
-                          </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="2">
-                          <Card.Body>
-                            <Button variant="outline-primary" size="sm" onClick={this.handleClick}>
-                            View Invoice
-                            </Button>
-                          </Card.Body>
-                        </Accordion.Collapse>
-                      </Card>
-                      <Card>
-                          <Accordion.Toggle as={Card.Header} variant="link" eventKey="3">
-                            XXXXX YYYY-MM-DD
-                          </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="3">
-                          <Card.Body>
-                            <Button variant="outline-primary" size="sm" onClick={this.handleClick}>
-                            View Invoice
-                            </Button>
-                          </Card.Body>
-                        </Accordion.Collapse>
-                      </Card>
-                      <Card>
-                          <Accordion.Toggle as={Card.Header} variant="link" eventKey="4">
-                            XXXXX YYYY-MM-DD
-                          </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="4">
-                          <Card.Body>
-                            <Button variant="outline-primary" size="sm" onClick={this.handleClick}>
+                            <Button variant="outline-danger" size="sm" onClick={this.handleClick}>
                             View Invoice
                             </Button>
                           </Card.Body>
@@ -95,8 +66,16 @@ class DriverPastInvoices extends Component {
                       </Card>
                     </Accordion>
                 </div>
-                <Button variant="secondary" size="sm" onClick={this.handleBack}>Back</Button>
+                <div className="back-button">
+                  <Button 
+                    variant="outline-secondary" 
+                    size="lg" 
+                    onClick={this.handleBack}>
+                    Back
+                    </Button>
+                </div>
             </div>
+            </Fragment>
         );
     }
 }
