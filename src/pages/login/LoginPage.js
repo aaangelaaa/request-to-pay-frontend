@@ -50,6 +50,10 @@ class LoginPage extends Component {
       .catch(error => this.setState({ error }));
   }
 
+  componentDidMount(){
+    document.body.style.setProperty('--company-color', '#EC111A');
+  }
+
   render() {
     return (
       <Fragment>
@@ -90,7 +94,7 @@ class LoginPage extends Component {
                 Submit
               </Button>
               {this.state.error && (
-                <p>Something went wrong logging in. Please try again.</p>
+                <p className="bad-login">Something went wrong logging in. Please try again.</p>
               )}
             </Form>
           </div>

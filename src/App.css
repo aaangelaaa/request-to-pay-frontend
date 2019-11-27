@@ -1,4 +1,4 @@
-:root{
+body{
   --company-color: #EC111A;
 }
 
@@ -28,3 +28,13 @@
 .App-link {
   color: #09d3ac;
 }
+
+[class*="danger"]{
+  border-color: var(--company-color) !important;
+}
+
+[class*="outline-danger"]{
+  color: var(--company-color) !important;
+}
+
+
