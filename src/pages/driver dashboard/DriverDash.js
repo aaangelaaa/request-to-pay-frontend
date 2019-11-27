@@ -24,13 +24,13 @@ class DriverDash extends Component {
   handleClick1(e) {
     e.preventDefault();
     // switch pages
-    this.props.history.push("/driveractiveinvoices");
+    this.props.history.push("/invoices/?active");
   }
 
   handleClick2(e) {
     e.preventDefault();
     // switch pages
-    this.props.history.push("/driverpastinvoices");
+    this.props.history.push("/invoices/");
   }
 
   handleLogout() {

@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import LoginPage from "../pages/login/LoginPage.js";
+import Loading from '../pages/loading/Loading';
 import SignUp from "../pages/signup/SignUp.js";
 import Dashboard from "../pages/driver dashboard/DriverDash.js";
 import DriverActiveInvoices from "../pages/driver active invoices/DriverActiveInvoices.js";
@@ -29,13 +30,15 @@ import withGlobalState from "../helpers/withGlobalState";
 const Routing = ({ context: { state } }) => {
   if (state.loading){
     return (
-      <p>Loading...</p>
+      <Loading/>
     );
   } else if (state.loggedIn && state.user){
     return (
       <Router>
         <Switch>
           <Route exact path="/" component={Dashboard} />
+          <Route path="/invoices" component={DriverActiveInvoices}/>
+          <Route exact path="/invoice/:id" component={Invoice} />
           {/* <Route exact path="/driverdash" component={DriverDash} /> */}
           {/* <Route
           exact

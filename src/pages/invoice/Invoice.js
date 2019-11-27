@@ -18,8 +18,11 @@ class Invoice extends Component {
 
     handleBack (e) {
         e.preventDefault();
-        // switcc pages
-        console.log("logging out!");
+        try {
+          this.props.history.goBack();
+        } catch {
+          this.props.history.push("/");
+        }
     }
 
     render () {
