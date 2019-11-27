@@ -63,7 +63,7 @@ class LoginPage extends Component {
             <div id="wave">
             </div>
           </div>
-          <div id="rectangle">
+          <div id="filler">
           </div>
           <div className="login">
             <div className="logo-container">
