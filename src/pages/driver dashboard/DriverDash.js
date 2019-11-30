@@ -58,7 +58,7 @@ class DriverDash extends Component {
         </div>
         <div className="dashboard">
           <h3 className="dash-title">Dashboard</h3>
-          <h3>Hello, {user.first_name}.</h3>
+          <h3>Hello {user.first_name}!</h3>
           <div className="dash-active-invoices">
             <Button
               variant="danger"

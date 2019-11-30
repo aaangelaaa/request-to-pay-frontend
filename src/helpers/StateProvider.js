@@ -26,6 +26,10 @@ class StateProvider extends React.Component {
       }
   }
 
+  // static getDerivedStateFromProps(oldProps, newState){
+  //   if ()
+  // }
+
   render() {
     return (
       <GlobalState.Provider

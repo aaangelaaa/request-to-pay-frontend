@@ -116,7 +116,7 @@ class Invoice extends Component {
               </div>
             </div>
             {(this.props.context.state.user.user_type === "C" && data.status==="A") && (
-              <div className="pay-me">You should probably pay for this invoice.</div>
+              null // <div className="pay-me">You should probably pay for this invoice.</div>
             )}
           </Fragment>
         )}

@@ -36,10 +36,16 @@ class DriverActiveInvoices extends Component {
     }
   }
 
+  handleSetInvoiceDelivered(id){
+    return (e) => {
+      e.preventDefault();
+    }
+  }
+
   handlePayInvoice(id) {
     return (e) => {
       e.preventDefault();
-      alert('pay up!')
+      // alert('pay up!')
     }
   }
 
@@ -84,7 +90,12 @@ class DriverActiveInvoices extends Component {
         <div className="active">
           <h3 className="active-title">{title}</h3>
           <DataProvider href={URL + query.join("&")}>
-            {({ data = [] }) => (
+            {({ data = [] }) => {
+              const onClick = {
+                'D': this.handleSetInvoiceDelivered.bind(this),
+                'C': this.handlePayInvoice.bind(this)
+            }[user.user_type]
+              return (
               <div className="list-invoices">
                 <h6>Invoice# Status</h6>
                 <Accordion>
@@ -92,9 +103,9 @@ class DriverActiveInvoices extends Component {
                     <InvoiceAccordionItem
                       key={i}
                       invoice={data}
-                      isDriver={user.user_type === "D"}
+                      userType={user.user_type}
                       handleView={this.handleViewInvoice(data.id).bind(this)}
-                      handlePay={this.handlePayInvoice(data.id).bind(this)}
+                      handleClick={onClick}
                       i={i}
                     />
                   ))}
@@ -132,7 +143,7 @@ class DriverActiveInvoices extends Component {
                         </Card> */}
                 </Accordion>
               </div>
-            )}
+            )}}
           </DataProvider>
           <div className="back-button">
             <Button
