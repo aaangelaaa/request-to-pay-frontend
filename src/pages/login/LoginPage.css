@@ -2,7 +2,7 @@
 
 #filler { /* to fill in gap in background colour */
     position: absolute;
-    top: 130vw;
+    top: 30vh;
     width: 100%;
     height: 100%;
     background: var(--company-color);
@@ -13,7 +13,7 @@
     position: relative;
     height: 100%;
     padding: 10%;
-    background-color: var(--company-color);
+    /*background-color: var(--company-color);*/
 }
 
 .login-header {
@@ -27,6 +27,7 @@
     font-weight: normal;
     font-size: 48px;   
     color: white;
+    z-index: 800;
 }
 
 .form-container {
@@ -62,6 +63,7 @@
   height: 30vh;
   overflow: hidden;
   background-color: var(--company-color);
+  z-index: 900;
 }
 
 #wave {
