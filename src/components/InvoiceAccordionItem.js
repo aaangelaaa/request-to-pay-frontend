@@ -8,6 +8,11 @@ const InvoiceAccordionItem = ({ invoice, handleView, handleClick, userType, i })
     "A": "Not paid, not delivered", // TODO: ??
     "D": "Paid and delivered"
   }[invoice.status];
+
+  let extraButton = invoice.status !== 'D' && {
+    "D": "Set Delivered",
+    "C": "Pay Now"
+  }[userType];
   
   return(
   <Card>
@@ -21,20 +26,16 @@ const InvoiceAccordionItem = ({ invoice, handleView, handleClick, userType, i })
         <Button variant="outline-danger" size="sm" onClick={handleView}>
           View Invoice
         </Button>
-        {(userType === 'D') && (<Button
+        {extraButton && (
+          <Button
           className="set-delivered"
           variant="outline-danger"
           size="sm"
           onClick={handleClick}
         >
-          Set Delivered
-        </Button>)}
-        {(userType === 'C') && (<Button
-          className="set-delivered"
-          variant="outline-danger"
-          size="sm"
-          onClick={handleClick}
-        >Pay Now</Button>)}
+          {extraButton}
+        </Button>
+        )}
       </Card.Body>
     </Accordion.Collapse>
   </Card>

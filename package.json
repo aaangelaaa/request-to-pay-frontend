@@ -2,7 +2,8 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8000",
+  "//": {"proxy": "http://stormy-tor-06010.herokuapp.com"},
+  "proxy": "http://stormy-tor-06010.herokuapp.com",
   "engines": {
     "node": "10.16.3",
     "npm": "6.9.0"
