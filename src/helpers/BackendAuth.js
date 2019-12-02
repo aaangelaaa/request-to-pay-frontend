@@ -1,7 +1,7 @@
 import Cookies from 'universal-cookie';
 import {DEBUG} from '../App';
 
-const API_URL = DEBUG ? 'localhost:8000': 'http://stormy-tor-06010.herokuapp.com';
+const API_URL = DEBUG ? 'localhost:8000': 'https://stormy-tor-06010.herokuapp.com';
 
 export const DEFAULT_HANDLER = alert;
 export const EVT_SET_ITEM = new Event('set-item');
