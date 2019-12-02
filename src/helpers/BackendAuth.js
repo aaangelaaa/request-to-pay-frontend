@@ -1,4 +1,8 @@
 import Cookies from 'universal-cookie';
+import {DEBUG} from '../App';
+
+const API_URL = DEBUG ? 'localhost:8000': 'http://stormy-tor-06010.herokuapp.com';
+
 export const DEFAULT_HANDLER = alert;
 export const EVT_SET_ITEM = new Event('set-item');
 export const EVT_REMOVE_ITEM = new Event('remove-item');
@@ -31,8 +35,9 @@ export const get = (href, handler = DEFAULT_HANDLER) => {
     }
 
     return fetch(
-            href, {
-                headers
+            API_URL + href, {
+                headers,
+                credentials: 'same-origin'
             }
         ).then(res => {
             if (res.ok) {
@@ -57,9 +62,10 @@ export const post = (href, body, handler = DEFAULT_HANDLER) => {
     }
 
     return fetch(
-            href, {
+        API_URL + href, {
                 method: 'POST',
                 body: JSON.stringify(body),
+                credentials: 'same-origin',
                 headers
             }
         ).then(res => {
@@ -95,7 +101,9 @@ export function profile() {
 export function logout() {
     return post('/accounts/logout/', {
         revoke_token: true
-    }).then(() => {
+    }, NOOP).then(() => {
+        console.log('token removed');
+        
         removeItem('token');
     })
 }
