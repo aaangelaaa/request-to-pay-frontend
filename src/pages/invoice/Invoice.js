@@ -118,6 +118,18 @@ class Invoice extends Component {
             {(this.props.context.state.user.user_type === "C" && data.status==="A") && (
               null // <div className="pay-me">You should probably pay for this invoice.</div>
             )}
+            {(data.status === "P") && (
+              <h2 style={{
+                marginTop: 40,
+                textAlign: 'center'
+              }}>PAID</h2>
+            )}
+            {(data.status === "D") && (
+              <h2 style={{
+                marginTop: 40,
+                textAlign: 'center'
+              }}>DELIVERED</h2>
+            )}
           </Fragment>
         )}
       </DataProvider>
