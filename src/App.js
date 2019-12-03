@@ -4,8 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Routing from "./helpers/Routing.js";
 
 import StateProvider from './helpers/StateProvider';
-
-export const DEBUG = false;
+import ToastNotification from './components/ToastNotification';
 
 
 class App extends React.Component {

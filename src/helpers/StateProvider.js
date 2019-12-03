@@ -1,5 +1,5 @@
 import React from "react";
-import * as auth from './BackendAuth';
+import * as auth from "./BackendAuth";
 
 export const GlobalState = React.createContext();
 
@@ -14,16 +14,22 @@ class StateProvider extends React.Component {
     };
   }
 
-  getUser(){
-      auth.profile()
-      .then(user => this.setState({user, loading: false}))
+  getUser() {
+    auth.profile().then(user => {
+      this.setState({ user, loading: false });
+      if (user.user_type === "D") {
+        document.body.style.setProperty("--company-color", "var(--green)");
+      } else {
+        document.body.style.setProperty("--company-color", "#EC111A");
+      }
+    });
   }
 
-  componentDidMount(){
-      const {loggedIn, user} = this.state;
-      if (loggedIn && !user){
-        this.getUser();
-      }
+  componentDidMount() {
+    const { loggedIn, user } = this.state;
+    if (loggedIn && !user) {
+      this.getUser();
+    }
   }
 
   // static getDerivedStateFromProps(oldProps, newState){

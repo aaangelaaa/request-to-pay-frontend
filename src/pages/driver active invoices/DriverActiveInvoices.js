@@ -1,8 +1,8 @@
 import React, { Fragment, Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Accordion, Card, Button, Form } from "react-bootstrap";
+import { Accordion, Button } from "react-bootstrap";
 import InvoiceAccordionItem from "../../components/InvoiceAccordionItem";
-import { GlobalState } from "../../App";
+import * as auth from "../../helpers/BackendAuth";
 import withGlobalState from "../../helpers/withGlobalState";
 import DataProvider from "../../helpers/DataProvider";
 import "./DriverActiveInvoices.css";
@@ -29,24 +29,28 @@ class DriverActiveInvoices extends Component {
     this.props.history.push("/invoice");
   }
 
-  handleViewInvoice(id){
-    return (e) => {
+  handleViewInvoice(id) {
+    return e => {
       e.preventDefault();
-      this.props.history.push("/invoice/"+id);
-    }
+      this.props.history.push("/invoice/" + id);
+    };
   }
 
-  handleSetInvoiceDelivered(id){
-    return (e) => {
+  handleSetInvoiceDelivered(id) {
+    return e => {
       e.preventDefault();
-    }
+
+      auth.deliver(id)
+        .then(() => window.location.reload());
+    };
   }
 
   handlePayInvoice(id) {
-    return (e) => {
+    return e => {
       e.preventDefault();
-      // alert('pay up!')
-    }
+      auth.pay(id)
+        .then(() => window.location.reload());
+    };
   }
 
   handleBack(e) {
@@ -65,7 +69,7 @@ class DriverActiveInvoices extends Component {
     const query = [];
 
     if (this.active) {
-      query.push("status=A");
+      query.push("status__not=D");
     } else {
       query.push("status=D");
     }
@@ -81,6 +85,11 @@ class DriverActiveInvoices extends Component {
         break;
     }
 
+    const onClick = {
+      D: this.handleSetInvoiceDelivered,
+      C: this.handlePayInvoice
+    }[user.user_type].bind(this);
+
     return (
       <Fragment>
         <div id="rectangle"></div>
@@ -91,59 +100,24 @@ class DriverActiveInvoices extends Component {
           <h3 className="active-title">{title}</h3>
           <DataProvider href={URL + query.join("&")}>
             {({ data = [] }) => {
-              const onClick = {
-                'D': this.handleSetInvoiceDelivered.bind(this),
-                'C': this.handlePayInvoice.bind(this)
-            }[user.user_type]
               return (
-              <div className="list-invoices">
-                <h6>Invoice# Status</h6>
-                <Accordion>
-                  {data.map((data, i) => (
-                    <InvoiceAccordionItem
-                      key={i}
-                      invoice={data}
-                      userType={user.user_type}
-                      handleView={this.handleViewInvoice(data.id).bind(this)}
-                      handleClick={onClick}
-                      i={i}
-                    />
-                  ))}
-                  {/* <Card>
-                            <Accordion.Toggle as={Card.Header} variant="link" eventKey="0">
-                              XXXXX UNDELIVERED
-                            </Accordion.Toggle>
-                          <Accordion.Collapse eventKey="0">
-                            <Card.Body style={{wordSpacing:"1px"}}>
-                              <strong>Status:</strong> Paid, Not Delivered<br></br><br></br>
-                              <Button variant="outline-danger" size="sm" onClick={this.handleClick1}>
-                              View Invoice
-                              </Button>
-                              <Button className="set-delivered" variant="outline-danger" size="sm" onClick={this.handleClick2}>
-                              Set Delivered
-                              </Button>
-                            </Card.Body>
-                          </Accordion.Collapse>
-                        </Card>
-                        <Card>
-                            <Accordion.Toggle as={Card.Header} variant="link" eventKey="1">
-                              XXXXX UNDELIVERED
-                            </Accordion.Toggle>
-                          <Accordion.Collapse eventKey="1">
-                            <Card.Body style={{wordSpacing:"1px"}}>
-                              <strong>Status:</strong> Paid, Not Delivered<br></br><br></br>
-                              <Button variant="outline-danger" size="sm" onClick={this.handleClick1}>
-                              View Invoice
-                              </Button>
-                              <Button className="set-delivered" variant="outline-danger" size="sm" onClick={this.handleClick2}>
-                              Set Delivered
-                              </Button>
-                            </Card.Body>
-                          </Accordion.Collapse>
-                        </Card> */}
-                </Accordion>
-              </div>
-            )}}
+                <div className="list-invoices">
+                  <h6>Invoice# Status</h6>
+                  <Accordion>
+                    {data.map((val, i) => (
+                      <InvoiceAccordionItem
+                        key={i}
+                        invoice={val}
+                        userType={user.user_type}
+                        handleView={this.handleViewInvoice(val.id).bind(this)}
+                        handleClick={onClick(val.id)}
+                        i={i}
+                      />
+                    ))}
+                  </Accordion>
+                </div>
+              );
+            }}
           </DataProvider>
           <div className="back-button">
             <Button

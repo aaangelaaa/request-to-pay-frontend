@@ -40,14 +40,6 @@ class DriverDash extends Component {
     auth.logout().then(() => update({ loggedIn: false, user: null }));
   }
 
-  componentDidMount(){
-    if (this.props.context.state.user.user_type === 'D'){
-      document.body.style.setProperty('--company-color', 'var(--green)');
-    }else{
-      document.body.style.setProperty('--company-color', '#EC111A');
-    }
-  }
-
   render() {
     const {state: {user}} = this.props.context;
     return (
