@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Table } from "react-bootstrap";
 import DataProvider from "../../helpers/DataProvider";
 import withGlobalState from "../../helpers/withGlobalState";
+import * as auth from "../../helpers/BackendAuth";
 import "./Invoice.css";
 import logo from "../../images/Scotiabank_White.png";
 
@@ -39,7 +40,16 @@ class Invoice extends Component {
     }
   }
 
+  handlePay(id){
+   return e => {
+     e.preventDefault();
+     auth.pay(id)
+      .then(() => window.location.reload());
+   }
+  }
+
   render() {
+    const {user} = this.props.context.state;
     return (
       <DataProvider href={`/api/invoices/${this.id}/`}>
         {({ data }) => (
@@ -106,13 +116,13 @@ class Invoice extends Component {
                 </tbody>
               </Table>
               <div className="btn-pay">
-                <Button
+                {(user.user_type === "C" && data.status === "A") && (<Button
                   variant="outline-danger"
                   size="lg"
-                  onClick={this.handleBack}
+                  onClick={this.handlePay(data.id)}
                 >
                   PAY NOW
-                </Button>
+                </Button>)}
               </div>
               <div className="back">
                 <Button
@@ -124,9 +134,6 @@ class Invoice extends Component {
                 </Button>
               </div>
             </div>
-            {(this.props.context.state.user.user_type === "C" && data.status==="A") && (
-              null // <div className="pay-me">You should probably pay for this invoice.</div>
-            )}
             {(data.status === "P") && (
               <h2 style={{
                 marginTop: 40,
