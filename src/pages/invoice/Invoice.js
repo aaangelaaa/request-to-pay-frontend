@@ -109,7 +109,7 @@ class Invoice extends Component {
                 <Button
                   variant="outline-danger"
                   size="lg"
-                  onClick={}
+                  onClick={this.handleBack}
                 >
                   PAY NOW
                 </Button>
