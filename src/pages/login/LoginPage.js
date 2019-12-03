@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Button } from "react-bootstrap";
 import logo from "../../images/Scotiabank logo.png";
+import background from "../../images/Background.png";
 import * as auth from "../../helpers/BackendAuth.js";
 import LoginConfirmation from "../login confirmation/LoginConfirmation.js";
 import withGlobalState from "../../helpers/withGlobalState";
@@ -57,10 +58,12 @@ class LoginPage extends Component {
   render() {
     return (
       <Fragment>
-        <div id="wave-container">
+        <img className="backgr" src={background} alt="" />
+        {/*<div id="wave-container">
           <div id="wave"></div>
         </div>
         <div id="filler"></div>
+      */}
         <div className="login">
           <div className="logo-container">
             <img className="logo" src={logo} alt="" />
