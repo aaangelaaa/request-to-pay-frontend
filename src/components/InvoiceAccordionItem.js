@@ -13,9 +13,14 @@ const InvoiceAccordionItem = ({ invoice, handleView, handleClick, userType, i })
 
   let extraButton = null;
 
+  console.log(userType, invoice.status);
+  
+
   if (userType === "D" && invoice.status === "P"){
     extraButton = "Set Delivered";
-  } else if (userType === "C" && invoice.status === "D"){
+    console.log("this should be it chief");
+    
+  } else if (userType === "C" && invoice.status === "A"){
     extraButton = "Pay Now";
   }
   
