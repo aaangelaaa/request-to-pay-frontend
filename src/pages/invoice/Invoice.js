@@ -105,6 +105,14 @@ class Invoice extends Component {
                   </tr>
                 </tbody>
               </Table>
+              <div className="btn-pay">
+                <Button
+                  variant="outline-danger"
+                  size="lg"
+                  onClick={}
+                >
+                  PAY NOW
+                </Button>
               <div className="back">
                 <Button
                   variant="outline-secondary"

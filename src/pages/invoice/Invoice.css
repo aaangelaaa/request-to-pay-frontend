@@ -77,6 +77,12 @@
     white-space: pre-wrapm;
 }
 
+.btn-pay {
+    position: absolute;
+    top: 72vh;
+    left: 39vw;
+}
+
 .back {
     position: absolute;
     top: 75vh;
