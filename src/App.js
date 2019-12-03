@@ -5,7 +5,7 @@ import Routing from "./helpers/Routing.js";
 
 import StateProvider from './helpers/StateProvider';
 
-export const DEBUG = true;
+export const DEBUG = false;
 
 
 class App extends React.Component {

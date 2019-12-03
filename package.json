@@ -2,13 +2,13 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8000",
   "engines": {
     "node": "10.16.3",
     "npm": "6.9.0"
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "http-proxy-middleware": "^0.20.0",
     "moment": "^2.24.0",
     "package.json": "^2.0.1",
     "react": "^16.11.0",
@@ -22,7 +22,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && mv build/index.html build/200.html && surge build request-to-pay.surge.sh"
   },
   "eslintConfig": {
     "extends": "react-app"

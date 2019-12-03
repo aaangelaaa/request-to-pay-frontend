@@ -59,7 +59,7 @@ class Invoice extends Component {
                 <br></br>
                 {data.customer.first_name} {data.customer.last_name}
                 <br></br>
-                {data.customer.address}
+                <span className="address">{data.customer.address}</span>
               </p>
               <p className="invoice-titles">
                 <strong>Invoice #: </strong>
