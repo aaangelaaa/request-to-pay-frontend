@@ -113,6 +113,7 @@ class Invoice extends Component {
                 >
                   PAY NOW
                 </Button>
+              </div>
               <div className="back">
                 <Button
                   variant="outline-secondary"
