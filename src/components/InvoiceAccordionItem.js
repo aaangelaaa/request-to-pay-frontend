@@ -9,10 +9,15 @@ const InvoiceAccordionItem = ({ invoice, handleView, handleClick, userType, i })
     "D": "Paid and delivered"
   }[invoice.status];
 
-  let extraButton = invoice.status !== 'D' && {
-    "D": "Set Delivered",
-    "C": "Pay Now"
-  }[userType];
+
+
+  let extraButton = null;
+
+  if (userType === "D" && invoice.status === "P"){
+    extraButton = "Set Delivered";
+  } else if (userType === "C" && invoice.status === "D"){
+    extraButton = "Pay Now";
+  }
   
   return(
   <Card>
