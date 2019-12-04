@@ -74,12 +74,12 @@
 }
 
 .address{
-    white-space: pre-wrapm;
+    white-space: pre-wrap;
 }
 
 .btn-pay {
     position: absolute;
-    top: 50vh;
+    top: calc(50vh + 2em);
     left: 34vw;
 }
 
